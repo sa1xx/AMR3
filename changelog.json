@@ -25,6 +25,12 @@
                 ],
                 "New Mirrors": [
                     "Radiant Scans (https://radiantscans.com/)"
+                ],
+                "New Mirrors": [
+                    "Usagi (https://web.usagi.one/)"
+                ],
+                "Mirror Fixes": [
+                    "SeiManga - Fixed manga urls"
                 ]
             }
         },
