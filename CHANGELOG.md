@@ -22,6 +22,7 @@ The following sections are the standard sections to use, please stick with them 
 ### New Features
 
 -   Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader
+-   Enabled smooth scrolling with arrow keys
 
 ### Bug Fixes
 
@@ -31,10 +32,15 @@ The following sections are the standard sections to use, please stick with them 
 
 -   Reaper Scans - Fixed issue with loading images in new chapters
 -   Flame Scans - They changed url format and image source again
+-   SeiManga - Fixed manga urls
+-   Flame Scans - Fixed image loading
 
 ### New Mirrors
 
 -   Radiant Scans (https://radiantscans.com/)
+-   Usagi (https://web.usagi.one/)
+-   Raw Kuma (https://rawkuma.com/)
+-   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation
 
 ## [3.0.3] - 2024-08-25
 

@@ -4,14 +4,20 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### New Features\r\n\r\n-   Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader\r\n\r\n### Bug Fixes\r\n\r\n-   Fixed a bug that forced a chapter list check when loading a page if you already tracked the series. Should drastically speed up loading Webtoons\r\n\r\n### Mirror Fixes\r\n-   Reaper Scans - Fixed issue with loading images in new chapters\r\n-   Flame Scans - They changed url format and image source again\r\n\r\n### New Mirrors\r\n\r\n-   Radiant Scans (https://radiantscans.com/)",
+            "body": "### New Features\r\n\r\n-   Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader\r\n-   Enabled smooth scrolling with arrow keys \r\n\r\n### Bug Fixes\r\n\r\n-   Fixed a bug that forced a chapter list check when loading a page if you already tracked the series. Should drastically speed up loading Webtoons\r\n\r\n### Mirror Fixes\r\n\r\n-   Reaper Scans - Fixed issue with loading images in new chapters\r\n-   Flame Scans - They changed url format and image source again\r\n-   SeiManga - Fixed manga urls\r\n-   Flame Scans - Fixed image loading\r\n\r\n### New Mirrors\r\n\r\n-   Radiant Scans (https://radiantscans.com/)\r\n-   Usagi (https://web.usagi.one/)\r\n-   Raw Kuma (https://rawkuma.com/)\r\n-   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation",
             "parsed": {
                 "_": [
                     "Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader",
+                    "Enabled smooth scrolling with arrow keys",
                     "Fixed a bug that forced a chapter list check when loading a page if you already tracked the series. Should drastically speed up loading Webtoons",
                     "Reaper Scans - Fixed issue with loading images in new chapters",
                     "Flame Scans - They changed url format and image source again",
-                    "Radiant Scans (https://radiantscans.com/)"
+                    "SeiManga - Fixed manga urls",
+                    "Flame Scans - Fixed image loading",
+                    "Radiant Scans (https://radiantscans.com/)",
+                    "Usagi (https://web.usagi.one/)",
+                    "Raw Kuma (https://rawkuma.com/)",
+                    "ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation"
                 ],
                 "New Features": [
                     "Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader",
@@ -28,7 +34,9 @@
                 ],
                 "New Mirrors": [
                     "Radiant Scans (https://radiantscans.com/)",
-                    "Usagi (https://web.usagi.one/)"
+                    "Usagi (https://web.usagi.one/)",
+                    "Raw Kuma (https://rawkuma.com/)",
+                    "ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation"
                 ]
             }
         },

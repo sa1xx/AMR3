@@ -377,6 +377,19 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                     return parts.join("/")
                 }
             }
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Raw Kuma",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/raw-kuma-optimized.png"),
+                domains: ["rawkuma.com"],
+                home: "https://rawkuma.com/",
+                chapter_url: /chapter-[0-9]+.*\/$/g,
+                languages: "jp"
+            },
+            {}
         )
         /*,
         new MangaStream_1_1_4(
