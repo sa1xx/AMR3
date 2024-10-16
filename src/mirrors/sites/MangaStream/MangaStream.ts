@@ -226,7 +226,6 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 chapters_text_sel: "span.chapternum",
                 search_json: false,
                 img_sel: `#readerarea img[width!="1px"][class*="size-"]`,
-                img_src: "data-src",
                 fixChapterUrl: origUrl => {
                     const parts = origUrl.split("/")
 
