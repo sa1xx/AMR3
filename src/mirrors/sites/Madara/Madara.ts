@@ -13,6 +13,7 @@ export const defaultOptions = {
     chapter_list_ajax: false,
     chapter_list_ajax_selctor: "manga",
     chapter_list_ajax_selctor_type: "variable",
+    chapter_list_ignore_lock: false,
     title_selector: "div.post-title > h1",
     img_src: "src",
     secondary_img_src: "data-src",
@@ -132,6 +133,10 @@ export class Madara extends BaseMirror implements MirrorImplementation {
             ]
 
             stringsToStrip.forEach(x => (chapterName = chapterName.replace(x, "")))
+
+            if (_self.options.chapter_list_ignore_lock && $(this).find('i.fa-lock').length > 0) {
+                return
+            }
 
             if (chapterName !== "") {
                 res.push([

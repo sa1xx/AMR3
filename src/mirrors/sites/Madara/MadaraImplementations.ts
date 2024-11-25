@@ -720,7 +720,8 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
             {
                 chapter_list_ajax: true,
                 isekai_chapter_url: true,
-                chapters_a_sel: "li.wp-manga-chapter a:contains('Chapter')"
+                chapters_a_sel: "li.wp-manga-chapter a:contains('Chapter')",
+                chapter_list_ignore_lock: true
                 // chapter_list_ajax_selctor_type: "html",
                 // chapter_list_ajax_selctor: "#manga-chapters-holder"
             }

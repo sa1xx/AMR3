@@ -46,6 +46,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Reset Scans - New domain
 -   Seri Manga - New domain
 -   Void Scans - New domain
+-   UToon - Fix for chapter list on series that have locked chapters
 
 ### New Mirrors
 
