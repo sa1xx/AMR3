@@ -215,6 +215,7 @@ export class OptionStorage {
 
             return vueOptions
         } catch(e) {
+            console.debug('Error loading vue options')
             console.debug(e)
         }
     }
