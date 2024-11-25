@@ -1,10 +1,8 @@
 import { BaseMirror } from "../abstract/BaseMirror"
 import { MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
-import LiminousScanIcon from "../../icons/luminousscans-optimized.png"
 import ManhwaxIcon from "../../icons/manhwax-optimized.png"
 import NightScansIcon from "../../icons/night-scans-optimized.png"
-import NocturalScansIcon from "../../icons/nocturnal-scans-optimized.png"
 import AnigliScansIcon from "../../icons/anigli-scans-optimized.png"
 
 const defaultOptions = {
@@ -123,12 +121,12 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 mirrorName: "Manhwax",
                 mirrorIcon: ManhwaxIcon,
                 languages: "en",
-                domains: ["manhwax.com"],
-                home: "https://manhwax.com/",
+                domains: ["manhwax.com", "manhwax.org"],
+                home: "https://manhwax.org/",
                 chapter_url: /\/.*?chapter-[0-9]+.*\//g
             },
             {
-                base_url: "https://manhwax.com/"
+                base_url: "https://manhwax.org/"
             }
         ),
         new MangaStream_1_1_4(
@@ -144,22 +142,6 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
             },
             {
                 // search_url: "https://nightscans.org",
-                chapter_list_selector: "#chapterlist .eph-num a"
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
-                mirrorName: "Nocturnal Scans",
-                canListFullMangas: false,
-                mirrorIcon: NocturalScansIcon,
-                domains: ["nocturnalscans.com"],
-                home: "https://nocturnalscans.com",
-                chapter_url: /\/.*?-[0-9]+.*\//g,
-                languages: "en"
-            },
-            {
-                // search_url: "https://nocturnalscans.com",
                 chapter_list_selector: "#chapterlist .eph-num a"
             }
         ),
@@ -270,30 +252,6 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
             {
                 base_url: "https://cypho-scans.xyz",
                 chapter_list_selector: "#chapterlist .eph-num a"
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
-                mirrorName: "Radiant Scans",
-                canListFullMangas: false,
-                mirrorIcon: require("../../icons/radiant-scans-optimized.png"),
-                domains: ["radiantscans.com"],
-                home: "https://radiantscans.com/",
-                chapter_url: /chapter-[0-9]+.*\/$/g,
-                languages: "en"
-            },
-            {
-                chapter_list_selector: "#chapterlist .eph-num a",
-                urlProcessorSeries: url => {
-                    const parts = url.split("/")
-                    const parts2 = parts[5].split("-")
-
-                    if (!isNaN(parts2[0]) && !isNaN(parseFloat(parts2[0]))) parts2.shift()
-
-                    parts[5] = parts2.join("-")
-                    return parts.join("/")
-                }
             }
         ),
         new MangaStream_1_1_4(

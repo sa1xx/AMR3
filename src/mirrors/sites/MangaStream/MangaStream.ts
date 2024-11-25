@@ -124,7 +124,7 @@ class MangaStream extends BaseMirror implements MirrorImplementation {
             res.push([chapter_text, chapter_url])
         })
 
-        // console.debug('Chapter list', res)
+        console.debug('Chapter list', res)
         return res
     }
 
@@ -340,22 +340,22 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 mirrorName: "Void Scans",
                 mirrorIcon: VoidScanIcon,
                 languages: "en",
-                domains: ["void-scans.com", "hivescans.com"],
-                home: "https://hivescans.com/",
+                domains: ["void-scans.com", "hivescans.com", "hivetoon.com"],
+                home: "https://hivetoon.com/",
                 chapter_url: /^\/.+chapter-\d+/g,
                 canListFullMangas: false
             },
             {
-                search_url: "https://hivescans.com/",
+                search_url: "https://hivetoon.com/",
                 chapters_a_sel: "div.bixbox.bxcl ul li a",
                 chapters_text_sel: "span.chapternum",
                 // img_src: "data-lazy-src",
                 img_src: "src",
-                fixChapterUrl: url => {
+                /*fixChapterUrl: url => {
                     const parts = url.split("/")
                     if (parts[3] == "1") parts.splice(3, 1)
                     return parts.join("/")
-                }
+                }*/
             }
         ),
         new MangaStream(

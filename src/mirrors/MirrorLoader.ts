@@ -20,7 +20,6 @@ import { WebToon } from "./sites/WebToon"
 import { ZeroScans } from "./sites/ZeroScans"
 import { MangadexV5 } from "./sites/Mangadex-V5"
 import { ZaHardTop } from "./sites/ZaHardTop"
-import { UnionLeitor } from "./sites/UnionLeitor"
 import { Tachidesk } from "./sites/Tachidesk"
 import { SeriManga } from "./sites/SeriManga"
 import { ScyllaScans } from "./sites/ScyllaScans"
@@ -57,6 +56,7 @@ import { MangaBTT } from "./sites/MangaBTT"
 import { MangaBuddy } from "./sites/MangaBuddy"
 import { AGRComics } from "./sites/AGRComics"
 import { FlameComics } from "./sites/FlameComics"
+import { WeebCentral } from "./sites/WeebCentral"
 
 import { TestSite } from "./sites/_localTestServer"
 
@@ -118,7 +118,6 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new MangaHub(mirrorHelper),
             new ZeroScans(mirrorHelper),
             new ZaHardTop(mirrorHelper),
-            new UnionLeitor(mirrorHelper),
             new Tachidesk(mirrorHelper),
             new SeriManga(mirrorHelper),
             new ScyllaScans(mirrorHelper),
@@ -155,6 +154,7 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new MangaBuddy(mirrorHelper),
             new AGRComics(mirrorHelper),
             new FlameComics(mirrorHelper),
+            new WeebCentral(mirrorHelper),
 
             new TestSite(mirrorHelper),
 

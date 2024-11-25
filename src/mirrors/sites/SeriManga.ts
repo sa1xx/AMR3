@@ -12,8 +12,8 @@ export class SeriManga extends BaseMirror implements MirrorImplementation {
     canListFullMangas = true
     mirrorIcon = SeriMangaIcon
     languages = "tr"
-    domains = ["serimanga.com"]
-    home = "https://serimanga.com/"
+    domains = ["serimanga.com", "serimangas.com"]
+    home = "https://serimangas.com/"
     chapter_url = /^\/manga(s)?\/.*\/[0-9]+.+$/g
 
     async getMangaList(search: string) {

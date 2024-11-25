@@ -43,6 +43,9 @@ The following sections are the standard sections to use, please stick with them 
 -   Hari Manga - New domain
 -   Hiperdex - Url format change, but it is getting cloudflare errors on backend so not working fully until they stop that
 -   Like Manga - Changed to new domain and Madara theme
+-   Reset Scans - New domain
+-   Seri Manga - New domain
+-   Void Scans - New domain
 
 ### New Mirrors
 
@@ -51,6 +54,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Raw Kuma (https://rawkuma.com/)
 -   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation
 -   AGR Comics (https://agrcomics.com) - This is a rebrand of Animated Glitch Comics
+-   Weeb Central - (https://weebcentral.com) - New site for Manga See
 
 ### Disabled Mirrors
 
@@ -71,6 +75,22 @@ The following sections are the standard sections to use, please stick with them 
 -   Manga Great - Website has been down for months
 -   Manga Sy - Website has been down for months
 -   Manga Tx - Website has been down for months
+-   MangazukiMe - Website has been down for months
+-   Manhuas - Webstite has been down for months
+-   Mint Manga - Domain is for sale
+-   Mixed Manga - Domain is for sale
+-   MM Scans - Website has been down for months
+-   Nocturnal Scans - Website has been down for months
+-   Radiant Scans - Group has shut down
+-   Random Translations - Website has been down for months
+-   Read Manga Today - Website has been down for months
+-   Ruya Manga - Website has been down for months
+-   Sawamics - Website has been down for months
+-   ScanFR - Website is a gambling site now?
+-   SK Scans - Website has been down for months
+-   Twilight Scans - Website has been down for months
+-   Ult Manga - Website has been down for months
+-   Unemployed Scans - Website has been down for months
 
 
 ## [3.0.3] - 2024-08-25

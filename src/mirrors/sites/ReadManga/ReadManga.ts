@@ -156,19 +156,6 @@ export const getReadMangaMirrors = (mirrorHelper: MirrorHelper): MirrorImplement
         new ReadManga(
             mirrorHelper,
             {
-                mirrorName: "MintManga",
-                mirrorIcon: require("../../icons/mintmanga-optimized.png"),
-                languages: "ru",
-                domains: ["mintmanga.live", "*.mintmanga.one"],
-                home: "https://2.mintmanga.one",
-                canListFullMangas: false,
-                chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
-            },
-            {}
-        ),
-        new ReadManga(
-            mirrorHelper,
-            {
                 mirrorName: "SeiManga",
                 mirrorIcon: require("../../icons/seimanga-optimized.png"),
                 languages: "ru",

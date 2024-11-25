@@ -187,26 +187,6 @@ export const getFunMangaImplementations = (mirrorHelper: MirrorHelper): MirrorIm
                 chapters_a_sel: "ul.chapter-list li > a",
                 page_container_sel: "body > .amr-container"
             }
-        ),
-
-        new FunManga(
-            mirrorHelper,
-            {
-                mirrorName: "ReadMangaToday",
-                canListFullMangas: true,
-                mirrorIcon: require("../../icons/readmangatoday-optimized.png"),
-                languages: "en",
-                domains: ["readmng.com"],
-                home: "https://www.readmng.com/",
-                chapter_url: /^\/.*\/[0-9]+\.?.+$/g
-            },
-            {
-                search_url: "https://www.readmng.com/search",
-                search_data_field: "query",
-                search_a_sel: ".content-list .title a",
-                chapters_a_sel: "#chapters-tabContent a.chnumber",
-                img_sel: ".readercontent"
-            }
         )
     ]
 }
