@@ -184,35 +184,39 @@ export class OptionStorage {
     }
 
     public async getVueOptions() {
-        const options = await browser.storage.local.get(this.getLookupRecord())
+        try {
+            const options = await browser.storage.local.get(this.getLookupRecord())
 
-        const vueOptions: Partial<AppOptions> = {}
-        Object.entries(options).forEach(([key, value]) => {
-            if (value === undefined || value === null || value === "") {
-                return // Skip
-            }
+            const vueOptions: Partial<AppOptions> = {}
+            Object.entries(options).forEach(([key, value]) => {
+                if (value === undefined || value === null || value === "") {
+                    return // Skip
+                }
 
-            if (jsonOptions.includes(key) && typeof value === "string") {
-                let storedVal = JSON.parse(value)
-                if (key === "readlanguages") {
-                    if (!Array.isArray(storedVal)) {
-                        storedVal = Object.values(storedVal)
+                if (jsonOptions.includes(key) && typeof value === "string") {
+                    let storedVal = JSON.parse(value)
+                    if (key === "readlanguages") {
+                        if (!Array.isArray(storedVal)) {
+                            storedVal = Object.values(storedVal)
+                        }
                     }
-                }
-                if (key === "categoriesStates") {
-                    storedVal = storedVal.filter(cat => cat.name !== undefined)
-                }
+                    if (key === "categoriesStates") {
+                        storedVal = storedVal.filter(cat => cat.name !== undefined)
+                    }
 
-                vueOptions[key] = storedVal
-            } else if (!stringOptions.includes(key) && typeof value === "string") {
-                // all non Json and non String values are considered Integers --> this is right for now
-                vueOptions[key] = parseInt(value)
-            } else {
-                vueOptions[key] = value
-            }
-        })
+                    vueOptions[key] = storedVal
+                } else if (!stringOptions.includes(key) && typeof value === "string") {
+                    // all non Json and non String values are considered Integers --> this is right for now
+                    vueOptions[key] = parseInt(value)
+                } else {
+                    vueOptions[key] = value
+                }
+            })
 
-        return vueOptions
+            return vueOptions
+        } catch(e) {
+            console.debug(e)
+        }
     }
 
     getKey(key: string): Promise<string | undefined> {

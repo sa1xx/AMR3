@@ -31,27 +31,19 @@ const handleManga = handler.getHandleManga()
 
 const init = async () => {
     const options = await optionsStorage.getVueOptions()
-    logger.debug("Init Stage 1 - Vue options pulled")
 
     await store.dispatch("initOptions", options)
     
-    logger.debug("Init Stage 2 - Options set in store")
 
     logger.setConfig(options)
     mirrorHelper.setOptions(options)
 
-    logger.debug("Init Stage 3 - Options set in logger and mirror helper")
-
     const syncManager = getSyncManager(getSyncOptions(options), store.state, store.dispatch, notifications)
-
-    logger.debug("Init Stage 4 - Sync Manager initialized")
 
     /**
      * Initialize extension versioning --> after options because versioning update can affect options
      */
     const afterLoadingCall = await amrInit.init()
-
-    logger.debug("Init Stage 5 - AMR versioning checks complete")
 
     /**
      * Initialize mirrors list in store from DB or repo
