@@ -34,6 +34,15 @@ The following sections are the standard sections to use, please stick with them 
 -   Flame Scans - They changed url format and image source again
 -   SeiManga - Fixed manga urls
 -   Flame Scans - Fixed image loading
+-   Evil Flowers - Switched to Madara theme
+-   Cypher Scans - Changed domain
+-   Disaster Scans - Fixed chapter list
+-   Dragon Tea - Url format change, but it is getting cloudflare errors on backend so not working fully until they stop that
+-   Drake Comic - New domain
+-   Flame Scans - New website
+-   Hari Manga - New domain
+-   Hiperdex - Url format change, but it is getting cloudflare errors on backend so not working fully until they stop that
+-   Like Manga - Changed to new domain and Madara theme
 
 ### New Mirrors
 
@@ -41,6 +50,28 @@ The following sections are the standard sections to use, please stick with them 
 -   Usagi (https://web.usagi.one/)
 -   Raw Kuma (https://rawkuma.com/)
 -   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation
+-   AGR Comics (https://agrcomics.com) - This is a rebrand of Animated Glitch Comics
+
+### Disabled Mirrors
+
+-   247 Manga - Website no longer available
+-   Animated Glitched Comics - They went through some kind of rebrand with a new name and site so I am making one from scratch
+-   Astral Library - Website down for months
+-   Astra Scans - Website down for months
+-   ChibiManga - Website down for months
+-   Comic Don - Website down for months
+-   Creepy Scans - Website down and ssl validation error
+-   Fun Manga - Website down for months
+-   Komicast - Website no longer available
+-   Komikav - Website no longer available
+-   Lily Manga - Website has been down for months
+-   Luminous Scans - The group has shut down
+-   Manga Bob - Websie has been down for months
+-   Manga Cultivator - Website has been down for months
+-   Manga Great - Website has been down for months
+-   Manga Sy - Website has been down for months
+-   Manga Tx - Website has been down for months
+
 
 ## [3.0.3] - 2024-08-25
 

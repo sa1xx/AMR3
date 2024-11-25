@@ -697,6 +697,7 @@
                                 :headers="headersSupportedWebsites"
                                 :items="supportedWebsites"
                                 item-key="mirrorName"
+                                sort-by="mirrorName"
                                 class="elevation-1"
                                 disable-pagination
                                 dense

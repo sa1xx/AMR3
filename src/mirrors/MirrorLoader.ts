@@ -50,12 +50,14 @@ import { DynastyScans } from "./sites/DynastyScans"
 import { DisasterScans } from "./sites/DisasterScans"
 import { Dm5 } from "./sites/Dm5"
 import { ReaperScans } from "./sites/ReaperScans"
-import { LikeManga } from "./sites/LikeManga"
 import { MangaPark } from "./sites/MangaPark"
 import { MangaReaderTo } from "./sites/MangaReaderTo"
 import { FanComics } from "./sites/FanComics"
 import { MangaBTT } from "./sites/MangaBTT"
 import { MangaBuddy } from "./sites/MangaBuddy"
+import { AGRComics } from "./sites/AGRComics"
+import { FlameComics } from "./sites/FlameComics"
+
 import { TestSite } from "./sites/_localTestServer"
 
 export class MirrorLoader {
@@ -146,12 +148,14 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new DisasterScans(mirrorHelper),
             new Dm5(mirrorHelper),
             new ReaperScans(mirrorHelper),
-            new LikeManga(mirrorHelper),
             new MangaPark(mirrorHelper),
             new MangaReaderTo(mirrorHelper),
             new FanComics(mirrorHelper),
             new MangaBTT(mirrorHelper),
             new MangaBuddy(mirrorHelper),
+            new AGRComics(mirrorHelper),
+            new FlameComics(mirrorHelper),
+
             new TestSite(mirrorHelper),
 
             // Must be last, as we sometimes select based on same matching
