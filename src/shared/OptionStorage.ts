@@ -186,6 +186,7 @@ export class OptionStorage {
     public async getVueOptions() {
         try {
             const options = await browser.storage.local.get(this.getLookupRecord())
+            console.debug(options)
 
             const vueOptions: Partial<AppOptions> = {}
             Object.entries(options).forEach(([key, value]) => {
