@@ -185,8 +185,12 @@ export class OptionStorage {
 
     public async getVueOptions() {
         try {
-            console.debug(this.getLookupRecord(), await browser.storage.local.get(this.getLookupRecord()).catch(e => { console.debug(e)}))
-            const options = await browser.storage.local.get(this.getLookupRecord())
+            const defaultValues = this.getLookupRecord()
+            let options = await browser.storage.local.get(defaultValues)
+
+            if (!options) {
+               options = defaultValues 
+            }
             
 
             const vueOptions: Partial<AppOptions> = {}
