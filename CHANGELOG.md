@@ -47,6 +47,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Seri Manga - New domain
 -   Void Scans - New domain
 -   UToon - Fix for chapter list on series that have locked chapters
+-   Manga Buddy - Fixed chapter list
 
 ### New Mirrors
 
@@ -92,7 +93,6 @@ The following sections are the standard sections to use, please stick with them 
 -   Twilight Scans - Website has been down for months
 -   Ult Manga - Website has been down for months
 -   Unemployed Scans - Website has been down for months
-
 
 ## [3.0.3] - 2024-08-25
 
