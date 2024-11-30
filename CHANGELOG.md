@@ -48,6 +48,8 @@ The following sections are the standard sections to use, please stick with them 
 -   Void Scans - New domain
 -   UToon - Fix for chapter list on series that have locked chapters
 -   Manga Buddy - Fixed chapter list
+-   Raw Kuma - Added Chinese and Korean language codes
+
 
 ### New Mirrors
 
@@ -57,6 +59,7 @@ The following sections are the standard sections to use, please stick with them 
 -   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation
 -   AGR Comics (https://agrcomics.com) - This is a rebrand of Animated Glitch Comics
 -   Weeb Central - (https://weebcentral.com) - New site for Manga See
+-   Nami Comi - (https://namicomi.com/en/) - This seems to only work when it wants to, not sure why but I will investigate. For now reload on a chapter until the reader shows up
 
 ### Disabled Mirrors
 

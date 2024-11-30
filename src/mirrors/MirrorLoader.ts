@@ -57,6 +57,7 @@ import { MangaBuddy } from "./sites/MangaBuddy"
 import { AGRComics } from "./sites/AGRComics"
 import { FlameComics } from "./sites/FlameComics"
 import { WeebCentral } from "./sites/WeebCentral"
+import { NamiComi } from "./sites/NamiComi"
 
 import { TestSite } from "./sites/_localTestServer"
 
@@ -155,6 +156,7 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new AGRComics(mirrorHelper),
             new FlameComics(mirrorHelper),
             new WeebCentral(mirrorHelper),
+            new NamiComi(mirrorHelper),
 
             new TestSite(mirrorHelper),
 

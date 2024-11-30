@@ -263,7 +263,7 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 domains: ["rawkuma.com"],
                 home: "https://rawkuma.com/",
                 chapter_url: /chapter-[0-9]+.*\/$/g,
-                languages: "jp"
+                languages: ["jp","cn","hk","kr"].join(',')
             },
             {}
         )
