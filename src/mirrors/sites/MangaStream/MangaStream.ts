@@ -2,10 +2,7 @@ import { BaseMirror } from "../abstract/BaseMirror"
 import { CurrentPageInfo, MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
 import AsuraScansIcon from "../../icons/asurascans-optimized.png"
-import FlameScanIcon from "../../icons/flamescans-optimized.png"
 import KiryuuIcon from "../../icons/kiryuu-optimized.png"
-import KomikavIcon from "../../icons/komikav-optimized.png"
-import KomicastIcon from "../../icons/komicast-optimized.png"
 import KomikstationIcon from "../../icons/komikstation-optimized.png"
 import KomikuIcon from "../../icons/komiku-optimized.png"
 import NgomikIcon from "../../icons/ngomik-optimized.png"
@@ -127,7 +124,7 @@ class MangaStream extends BaseMirror implements MirrorImplementation {
             res.push([chapter_text, chapter_url])
         })
 
-        // console.debug('Chapter list', res)
+        console.debug('Chapter list', res)
         return res
     }
 
@@ -209,24 +206,23 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 }
             }
         ),
-        new MangaStream(
+        /*new MangaStream(
             mirrorHelper,
             {
                 mirrorName: "Flame Scans",
                 canListFullMangas: false,
                 mirrorIcon: FlameScanIcon,
-                domains: ["flamescans.org", "flamecomics.com", "flamecomics.me"],
-                home: "https://flamecomics.me",
-                chapter_url: /\/.*?chapter-[0-9]+.*\//g,
+                domains: ["flamescans.org", "flamecomics.com", "flamecomics.me", "flamecomics.xyz"],
+                home: "https://flamecomics.xyz",
+                chapter_url: /\/series\/\d+\/.*$/g,
                 languages: "en"
             },
             {
-                search_url: "https://flamecomics.me",
+                search_url: "https://flamecomics.xyz",
                 chapters_a_sel: "div.bixbox.bxcl ul li a",
                 chapters_text_sel: "span.chapternum",
                 search_json: false,
                 img_sel: `#readerarea img[width!="1px"][class*="size-"]`,
-                img_src: "src",
                 fixChapterUrl: origUrl => {
                     const parts = origUrl.split("/")
 
@@ -255,7 +251,7 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                     return parts.join("/")
                 }
             }
-        ),
+        ),*/
         new MangaStream(
             mirrorHelper,
             {
@@ -274,42 +270,6 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 img_sel: ".wp-post-image",
                 img_src: "data-lazy-src",
                 search_json: false
-            }
-        ),
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Komikav",
-                canListFullMangas: false,
-                mirrorIcon: KomikavIcon,
-                domains: ["komikav.com"],
-                home: "https://komikav.com/",
-                chapter_url: /^\/m[0-9]+\/$/g,
-                languages: "id"
-            },
-            {
-                search_url: "https://komikav.com/",
-                chapters_a_sel: "div.bixbox.bxcl > ul > li > span.lchx a"
-            }
-        ),
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Komicast",
-                canListFullMangas: false,
-                mirrorIcon: KomicastIcon,
-                domains: ["komikcast.com", "komikcast.me", "komikcast.site"],
-                home: "https://komikcast.site/",
-                chapter_url: /^\/chapter\/.+$/g,
-                languages: "id"
-            },
-            {
-                search_url: "https://komikcast.site/",
-                search_json: false,
-                search_a_sel: "div.list-update_item > a",
-                chapters_a_sel: "div.komik_info-chapters a.chapter-link-item",
-                page_container_sel: ".main-reading-area",
-                img_sel: ".main-reading-area img"
             }
         ),
 
@@ -380,22 +340,22 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 mirrorName: "Void Scans",
                 mirrorIcon: VoidScanIcon,
                 languages: "en",
-                domains: ["void-scans.com", "hivescans.com"],
-                home: "https://hivescans.com/",
+                domains: ["void-scans.com", "hivescans.com", "hivetoon.com"],
+                home: "https://hivetoon.com/",
                 chapter_url: /^\/.+chapter-\d+/g,
                 canListFullMangas: false
             },
             {
-                search_url: "https://hivescans.com/",
+                search_url: "https://hivetoon.com/",
                 chapters_a_sel: "div.bixbox.bxcl ul li a",
                 chapters_text_sel: "span.chapternum",
                 // img_src: "data-lazy-src",
                 img_src: "src",
-                fixChapterUrl: url => {
+                /*fixChapterUrl: url => {
                     const parts = url.split("/")
                     if (parts[3] == "1") parts.splice(3, 1)
                     return parts.join("/")
-                }
+                }*/
             }
         ),
         new MangaStream(

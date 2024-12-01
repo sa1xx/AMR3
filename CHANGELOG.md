@@ -17,6 +17,88 @@ The following sections are the standard sections to use, please stick with them 
 -   Disabled Mirrors
 -   Notes - This is the catchall for anything that does not fit in the other sections.
 
+## [3.0.3] - 2024-12-01
+
+### New Features
+
+-   Added a few options for novels including light/dark background colors and increased font size. Custom color/size options to come in a future update once I have tested them. These options can only be changed in the popup options not in the reader
+-   Enabled smooth scrolling with arrow keys
+
+### Bug Fixes
+
+-   Fixed a bug that forced a chapter list check when loading a page if you already tracked the series. Should drastically speed up loading Webtoons
+
+### Mirror Fixes
+
+-   Reaper Scans - Fixed issue with loading images in new chapters
+-   Flame Scans - They changed url format and image source again
+-   SeiManga - Fixed manga urls
+-   Flame Scans - Fixed image loading
+-   Evil Flowers - Switched to Madara theme
+-   Cypher Scans - Changed domain
+-   Disaster Scans - Fixed chapter list
+-   Dragon Tea - Url format change, but it is getting cloudflare errors on backend so not working fully until they stop that
+-   Drake Comic - New domain
+-   Flame Scans - New website
+-   Hari Manga - New domain
+-   Hiperdex - Url format change, but it is getting cloudflare errors on backend so not working fully until they stop that
+-   Like Manga - Changed to new domain and Madara theme
+-   Reset Scans - New domain
+-   Seri Manga - New domain
+-   Void Scans - New domain
+-   UToon - Fix for chapter list on series that have locked chapters
+-   Manga Buddy - Fixed chapter list
+-   Raw Kuma - Added Chinese and Korean language codes
+
+### New Mirrors
+
+-   Radiant Scans (https://radiantscans.com/)
+-   Usagi (https://web.usagi.one/)
+-   Raw Kuma (https://rawkuma.com/)
+-   ManhuaPlus.org (https://manhuaplus.org/) - This is related to .com but uses a different template so it is a seperate implimentation
+-   AGR Comics (https://agrcomics.com) - This is a rebrand of Animated Glitch Comics
+-   Weeb Central - (https://weebcentral.com) - New site for Manga See
+-   Nami Comi - (https://namicomi.com/en/) - This seems to only work when it wants to, not sure why but I will investigate. For now reload on a chapter until the reader shows up
+-   Thunder Scans - (https://en-thunderscans.com/)
+-   Kappa Beast - (https://kappabeast.com/) - Getting cloudflare errors, will work if they remove strict protection
+-   NIFTeam - (https://read-nifteam.info/slide/)
+
+### Disabled Mirrors
+
+-   247 Manga - Website no longer available
+-   Animated Glitched Comics - They went through some kind of rebrand with a new name and site so I am making one from scratch
+-   Astral Library - Website down for months
+-   Astra Scans - Website down for months
+-   ChibiManga - Website down for months
+-   Comic Don - Website down for months
+-   Creepy Scans - Website down and ssl validation error
+-   Fun Manga - Website down for months
+-   Komicast - Website no longer available
+-   Komikav - Website no longer available
+-   Lily Manga - Website has been down for months
+-   Luminous Scans - The group has shut down
+-   Manga Bob - Websie has been down for months
+-   Manga Cultivator - Website has been down for months
+-   Manga Great - Website has been down for months
+-   Manga Sy - Website has been down for months
+-   Manga Tx - Website has been down for months
+-   MangazukiMe - Website has been down for months
+-   Manhuas - Webstite has been down for months
+-   Mint Manga - Domain is for sale
+-   Mixed Manga - Domain is for sale
+-   MM Scans - Website has been down for months
+-   Nocturnal Scans - Website has been down for months
+-   Radiant Scans - Group has shut down
+-   Random Translations - Website has been down for months
+-   Read Manga Today - Website has been down for months
+-   Ruya Manga - Website has been down for months
+-   Sawamics - Website has been down for months
+-   ScanFR - Website is a gambling site now?
+-   SK Scans - Website has been down for months
+-   Twilight Scans - Website has been down for months
+-   Ult Manga - Website has been down for months
+-   Unemployed Scans - Website has been down for months
+
 ## [3.0.3] - 2024-08-25
 
 ### Bug Fixes

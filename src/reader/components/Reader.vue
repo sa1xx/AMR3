@@ -89,7 +89,7 @@ export default {
             originalTitle: document.title /* Original title of the page */,
 
             animationDuration: 250 /* Duration of scrolls animation when navigating with keys */,
-            scrollStepWithKeys: 50 /* Scroll step with keys when need to scroll by steps */,
+            scrollStepWithKeys: 100 /* Scroll step with keys when need to scroll by steps */,
             lastKeyPressTime: 0 /* Last time a key was pressed (to detect double tap) */,
             lastKeyPress: 0 /* Last key pressed */,
             doubleTapDuration: 250 /* Laps of time between two events to be considered as doubletap */,
@@ -573,12 +573,12 @@ export default {
 
                         if (e.which === 87 || e.which === 38) {
                             //W or up arrow
-                            window.scrollBy(0, -this.scrollStepWithKeys)
+                            window.scrollBy({ top: -this.scrollStepWithKeys, left: 0, behavior: "smooth" })
                             prevent()
                         }
                         if (e.which === 83 || e.which === 40) {
                             //S or down arrow
-                            window.scrollBy(0, this.scrollStepWithKeys)
+                            window.scrollBy({ top: this.scrollStepWithKeys, left: 0, behavior: "smooth" })
                             prevent()
                         }
                         if (e.which === 107 || e.which === 187 || e.which === 61) {
@@ -631,7 +631,7 @@ export default {
                         if (e.which === 37 || e.which === 65) {
                             if (window.pageXOffset > 0) {
                                 // scroll horizontally if it is possible
-                                window.scrollBy(-this.scrollStepWithKeys, 0)
+                                window.scrollBy({ top: 0, left: -this.scrollStepWithKeys, behavior: "smooth" })
                             } else {
                                 // go to previous scan
                                 try {
@@ -645,7 +645,7 @@ export default {
                             // go to next scan
                             if (window.innerWidth + window.pageXOffset < this.$refs.scantable.offsetWidth) {
                                 // scroll horizontally if it is possible
-                                window.scrollBy(this.scrollStepWithKeys, 0)
+                                window.scrollBy({ top: 0, left: this.scrollStepWithKeys, behavior: "smooth" })
                             } else {
                                 try {
                                     this.goNextScan(doubletap)

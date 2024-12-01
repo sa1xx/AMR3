@@ -33,6 +33,7 @@ const init = async () => {
     const options = await optionsStorage.getVueOptions()
 
     await store.dispatch("initOptions", options)
+    
 
     logger.setConfig(options)
     mirrorHelper.setOptions(options)

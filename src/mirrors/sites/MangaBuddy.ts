@@ -16,6 +16,7 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
     home = "https://mangabuddy.com/home"
     baseUrl = "https://mangabuddy.com"
     chapter_url = /^\/.+\/chapter-\d+$/g
+    mangaIdRegex = /var bookId = (?<mangaId>\d+);/
 
     async getMangaList(search: string) {
         const doc = await this.mirrorHelper.loadPage(this.home + "/search?q=" + search, {
@@ -33,12 +34,19 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
         return res
     }
 
+    getMangaId(doc: string): string {
+        return doc.match(this.mangaIdRegex).groups.mangaId
+    }
+
     async getListChaps(urlManga) {
         const doc = await this.mirrorHelper.loadPage(urlManga, { nocache: true, preventimages: true })
+        const mangaId = this.getMangaId(doc)
+        const chaptersRequestUrl = `${this.baseUrl}/api/manga/${mangaId}/chapters?source=detail`
+        const chaptersDoc = await this.mirrorHelper.loadPage(chaptersRequestUrl, { nocache: true, preventimages: true })
 
         const res = []
         const _self = this
-        const $ = this.parseHtml(doc)
+        const $ = this.parseHtml(chaptersDoc)
 
         $("ul.chapter-list a").each(function (index) {
             res.push([$(".chapter-title", this).text().trim(), _self.baseUrl + $(this).attr("href")])
@@ -64,12 +72,6 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
         const images = await this.getVariable({ variableName: "chapImages ", doc }).split(",")
 
         return images
-
-        // $("div.reading-detail img").each(function (index) {
-        //     const src = $(this).attr("src")
-        //     if (src !== "https://image.mangabtt.com//Upload/Content/images/chapter/top.jpg") res.push(src)
-        // })
-        // return res
     }
 
     isCurrentPageAChapterPage(doc, curUrl) {

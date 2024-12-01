@@ -36,24 +36,61 @@ export class DisasterScans extends BaseMirror implements MirrorImplementation {
         const doc = await this.mirrorHelper.loadPage(urlManga, { nocache: true, preventimages: true })
         const res = []
 
+        const $ = this.parseHtml(doc)
+
+        const raw = $('script:last').text().replace('self.__next_f.push([1,"a:', '').replace('\\n"])', '').replaceAll('\\"', '"')
+
+
+        const json = JSON.parse(raw)
+
+        function findNode(json, key) {
+            if (json[key]) {
+                return json[key]
+            }
+            for (const child of Object.values(json).filter(value => value && typeof value == 'object')) {
+                const res = findNode(child, key)
+                if (res) {
+                    return res
+                }
+            }
+        }
+
+        const chapters = findNode(json, 'chapters')
+
+        chapters.forEach(element => {
+            res.push([
+                ("Chapter " + element.ChapterNumber + (element.ChapterName != "" ? " - " + element.ChapterName : "")).trim(),
+                urlManga + "/" + element.chapterID + "-chapter-" + element.ChapterNumber
+            ])  
+        })
+        
+        
+        
+        /*
         const regex = /<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/g
         const matches = regex.exec(doc)
         const data = JSON.parse(matches[1])
+
 
         data.props.pageProps.chapters.forEach(elem =>
             res.push([
                 ("Chapter " + elem.chapterNumber + (elem.ChapterName != "" ? " - " + elem.ChapterName : "")).trim(),
                 urlManga + "/" + elem.chapterID + "-chapter-" + elem.chapterNumber
             ])
-        )
+        ) */
+
+
         return res
+
     }
 
     async getCurrentPageInfo(doc, curUrl) {
-        const $ = this.parseHtml(doc)
+        const seriesUrl = curUrl.split("/").slice(0, 5).join("/")
+        const doc2 = await this.mirrorHelper.loadPage(seriesUrl, { nocache: true, preventimages: true })
+        const $ = this.parseHtml(doc2)
         return {
-            name: $('h1[class="md:text-3xl"]').text().trim(),
-            currentMangaURL: curUrl.split("/").slice(0, 5).join("/"),
+            name: $('h1:first').text().trim(),
+            currentMangaURL: seriesUrl,
             currentChapterURL: curUrl
         }
     }

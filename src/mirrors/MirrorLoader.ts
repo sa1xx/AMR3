@@ -9,6 +9,7 @@ import { getFoolSlideImplementations } from "./sites/FoolSlide/FoolSlide"
 import { getFunMangaImplementations } from "./sites/abstract/FunManga"
 import { getMyMangaReaderCMSMirrors } from "./sites/MyMangaReaderCMS/MyMangaReaderCMS"
 import { getReadMangaMirrors } from "./sites/ReadManga/ReadManga"
+import { getLilianaImplementations } from "./sites/Liliana/LilianaImplementations"
 
 import { MirrorHelper } from "./MirrorHelper"
 import { Manga4Life } from "./sites/Manga4Life"
@@ -19,7 +20,6 @@ import { WebToon } from "./sites/WebToon"
 import { ZeroScans } from "./sites/ZeroScans"
 import { MangadexV5 } from "./sites/Mangadex-V5"
 import { ZaHardTop } from "./sites/ZaHardTop"
-import { UnionLeitor } from "./sites/UnionLeitor"
 import { Tachidesk } from "./sites/Tachidesk"
 import { SeriManga } from "./sites/SeriManga"
 import { ScyllaScans } from "./sites/ScyllaScans"
@@ -49,12 +49,16 @@ import { DynastyScans } from "./sites/DynastyScans"
 import { DisasterScans } from "./sites/DisasterScans"
 import { Dm5 } from "./sites/Dm5"
 import { ReaperScans } from "./sites/ReaperScans"
-import { LikeManga } from "./sites/LikeManga"
 import { MangaPark } from "./sites/MangaPark"
 import { MangaReaderTo } from "./sites/MangaReaderTo"
 import { FanComics } from "./sites/FanComics"
 import { MangaBTT } from "./sites/MangaBTT"
 import { MangaBuddy } from "./sites/MangaBuddy"
+import { AGRComics } from "./sites/AGRComics"
+import { FlameComics } from "./sites/FlameComics"
+import { WeebCentral } from "./sites/WeebCentral"
+import { NamiComi } from "./sites/NamiComi"
+
 import { TestSite } from "./sites/_localTestServer"
 
 export class MirrorLoader {
@@ -106,6 +110,7 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             ...getMangaKakalotImplementations(mirrorHelper),
             ...getMyMangaReaderCMSMirrors(mirrorHelper),
             ...getReadMangaMirrors(mirrorHelper),
+            ...getLilianaImplementations(mirrorHelper),
             new MangadexV5(mirrorHelper),
             new WebToon(mirrorHelper),
             new MangaFox(mirrorHelper),
@@ -114,7 +119,6 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new MangaHub(mirrorHelper),
             new ZeroScans(mirrorHelper),
             new ZaHardTop(mirrorHelper),
-            new UnionLeitor(mirrorHelper),
             new Tachidesk(mirrorHelper),
             new SeriManga(mirrorHelper),
             new ScyllaScans(mirrorHelper),
@@ -144,12 +148,16 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new DisasterScans(mirrorHelper),
             new Dm5(mirrorHelper),
             new ReaperScans(mirrorHelper),
-            new LikeManga(mirrorHelper),
             new MangaPark(mirrorHelper),
             new MangaReaderTo(mirrorHelper),
             new FanComics(mirrorHelper),
             new MangaBTT(mirrorHelper),
             new MangaBuddy(mirrorHelper),
+            new AGRComics(mirrorHelper),
+            new FlameComics(mirrorHelper),
+            new WeebCentral(mirrorHelper),
+            new NamiComi(mirrorHelper),
+
             new TestSite(mirrorHelper),
 
             // Must be last, as we sometimes select based on same matching

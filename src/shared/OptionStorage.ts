@@ -161,7 +161,11 @@ export const getDefaultOptions = () => {
         komgaUser: "",
         komgaPassword: "",
 
-        tachideskUrl: "http://localhost:4567 "
+        tachideskUrl: "http://localhost:4567 ",
+
+        /** The options below are for novels */
+        novelDark: 0, // Dark background for novel images
+        novelLargePrint: 0 // Large print for novel images
     } as const
 }
 
@@ -180,35 +184,46 @@ export class OptionStorage {
     }
 
     public async getVueOptions() {
-        const options = await browser.storage.local.get(this.getLookupRecord())
+        try {
+            const defaultValues = this.getLookupRecord()
+            let options = await browser.storage.local.get(defaultValues)
 
-        const vueOptions: Partial<AppOptions> = {}
-        Object.entries(options).forEach(([key, value]) => {
-            if (value === undefined || value === null || value === "") {
-                return // Skip
+            if (!options) {
+               options = defaultValues 
             }
+            
 
-            if (jsonOptions.includes(key) && typeof value === "string") {
-                let storedVal = JSON.parse(value)
-                if (key === "readlanguages") {
-                    if (!Array.isArray(storedVal)) {
-                        storedVal = Object.values(storedVal)
+            const vueOptions: Partial<AppOptions> = {}
+            Object.entries(options).forEach(([key, value]) => {
+                if (value === undefined || value === null || value === "") {
+                    return // Skip
+                }
+
+                if (jsonOptions.includes(key) && typeof value === "string") {
+                    let storedVal = JSON.parse(value)
+                    if (key === "readlanguages") {
+                        if (!Array.isArray(storedVal)) {
+                            storedVal = Object.values(storedVal)
+                        }
                     }
-                }
-                if (key === "categoriesStates") {
-                    storedVal = storedVal.filter(cat => cat.name !== undefined)
-                }
+                    if (key === "categoriesStates") {
+                        storedVal = storedVal.filter(cat => cat.name !== undefined)
+                    }
 
-                vueOptions[key] = storedVal
-            } else if (!stringOptions.includes(key) && typeof value === "string") {
-                // all non Json and non String values are considered Integers --> this is right for now
-                vueOptions[key] = parseInt(value)
-            } else {
-                vueOptions[key] = value
-            }
-        })
+                    vueOptions[key] = storedVal
+                } else if (!stringOptions.includes(key) && typeof value === "string") {
+                    // all non Json and non String values are considered Integers --> this is right for now
+                    vueOptions[key] = parseInt(value)
+                } else {
+                    vueOptions[key] = value
+                }
+            })
 
-        return vueOptions
+            return vueOptions
+        } catch(e) {
+            console.debug('Error loading vue options')
+            console.debug(e)
+        }
     }
 
     getKey(key: string): Promise<string | undefined> {
