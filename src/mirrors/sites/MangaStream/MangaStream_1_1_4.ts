@@ -1,11 +1,8 @@
 import { BaseMirror } from "../abstract/BaseMirror"
 import { MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
-import AzureMangaIcon from "../../icons/azuremanga-optimized.png"
-import LiminousScanIcon from "../../icons/luminousscans-optimized.png"
 import ManhwaxIcon from "../../icons/manhwax-optimized.png"
 import NightScansIcon from "../../icons/night-scans-optimized.png"
-import NocturalScansIcon from "../../icons/nocturnal-scans-optimized.png"
 import AnigliScansIcon from "../../icons/anigli-scans-optimized.png"
 
 const defaultOptions = {
@@ -121,60 +118,15 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
         new MangaStream_1_1_4(
             mirrorHelper,
             {
-                mirrorName: "Azure Manga",
-                canListFullMangas: false,
-                mirrorIcon: AzureMangaIcon,
-                domains: ["azuremanga.com"],
-                home: "https://azuremanga.com/",
-                chapter_url: /.\d+.+\//g,
-                languages: "en"
-            },
-            {
-                base_url: "https://azuremanga.com/"
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
-                mirrorName: "Luminous Scans",
-                canListFullMangas: false,
-                mirrorIcon: LiminousScanIcon,
-                domains: [
-                    "luminousscans.gg",
-                    "luminousscans.net",
-                    "lumitoon.com",
-                    "luminouscomics.org",
-                    "luminous-scans.com"
-                ],
-                home: "https://luminous-scans.com/",
-                chapter_url: /chapter-[0-9]+.*\/$/g,
-                languages: "en"
-            },
-            {
-                chapter_list_selector: "#chapterlist .eph-num a",
-                urlProcessorSeries: url => {
-                    const parts = url.split("/")
-                    const parts2 = parts[5].split("-")
-
-                    if (!isNaN(parts2[0]) && !isNaN(parseFloat(parts2[0]))) parts2.shift()
-
-                    parts[5] = parts2.join("-")
-                    return parts.join("/")
-                }
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
                 mirrorName: "Manhwax",
                 mirrorIcon: ManhwaxIcon,
                 languages: "en",
-                domains: ["manhwax.com"],
-                home: "https://manhwax.com/",
+                domains: ["manhwax.com", "manhwax.org"],
+                home: "https://manhwax.org/",
                 chapter_url: /\/.*?chapter-[0-9]+.*\//g
             },
             {
-                base_url: "https://manhwax.com/"
+                base_url: "https://manhwax.org/"
             }
         ),
         new MangaStream_1_1_4(
@@ -196,22 +148,6 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
         new MangaStream_1_1_4(
             mirrorHelper,
             {
-                mirrorName: "Nocturnal Scans",
-                canListFullMangas: false,
-                mirrorIcon: NocturalScansIcon,
-                domains: ["nocturnalscans.com"],
-                home: "https://nocturnalscans.com",
-                chapter_url: /\/.*?-[0-9]+.*\//g,
-                languages: "en"
-            },
-            {
-                // search_url: "https://nocturnalscans.com",
-                chapter_list_selector: "#chapterlist .eph-num a"
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
                 mirrorName: "Animated Glitched Scans",
                 canListFullMangas: false,
                 mirrorIcon: AnigliScansIcon,
@@ -222,22 +158,6 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
             },
             {
                 // search_url: "https://anigliscans.xyz"
-            }
-        ),
-        // From the same team as "Animated Glitched Scans". That's why it shares the same icon (for now probably)
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
-                mirrorName: "Animated Glitched Comics",
-                canListFullMangas: false,
-                mirrorIcon: AnigliScansIcon,
-                domains: ["agscomics.com"],
-                home: "https://agscomics.com",
-                chapter_url: /.*/g,
-                languages: "en"
-            },
-            {
-                chapter_list_selector: "#chapterlist .eph-num a"
             }
         ),
         new MangaStream_1_1_4(
@@ -268,26 +188,6 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 // search_url: "https://realmscans.xyz/",
                 // series_list_selector: '.listupd a[href*="/series/"]',
                 chapter_list_selector: `.eph-num a[href*="rizzfables.com"]`
-            }
-        ),
-        new MangaStream_1_1_4(
-            mirrorHelper,
-            {
-                mirrorName: "Astra Scans",
-                canListFullMangas: false,
-                mirrorIcon: require("../../icons/astra-scans-optimized.png"),
-                domains: ["astrascans.com"],
-                home: "https://astrascans.com/",
-                chapter_url: /\-chapter\-\d.+\//g,
-                languages: "en"
-            },
-            {
-                base_url: "https://astrascans.com/",
-                urlProcessorChapter: url => {
-                    const parts = url.split("/")
-                    if (parts[3] == "10000") parts.splice(3, 1)
-                    return parts.join("/")
-                }
             }
         ),
         new MangaStream_1_1_4(
@@ -328,13 +228,13 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 mirrorName: "Drake Comic",
                 mirrorIcon: require("../../icons/drake-comic-optimized.png"),
                 languages: "en",
-                domains: ["drakecomic.com"],
-                home: "https://drakecomic.com",
+                domains: ["drakecomic.com", "drakecomic.org"],
+                home: "https://drakecomic.org",
                 // canListFullMangas: true,
                 chapter_url: /.*\-\d+/g
             },
             {
-                base_url: "https://drakecomic.com/"
+                base_url: "https://drakecomic.org/"
                 // chapter_list_selector: "#chapterlist .eph-num a"
             }
         ),
@@ -344,15 +244,56 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 mirrorName: "Cypher Scans",
                 mirrorIcon: require("../../icons/cypher-scans-optimized.png"),
                 languages: "en",
-                domains: ["cypherscans.xyz"],
-                home: "https://cypherscans.xyz",
+                domains: ["cypherscans.xyz", "cypho-scans.xyz"],
+                home: "https://cypho-scans.xyz",
                 // canListFullMangas: true,
                 chapter_url: /chapter\-\d+/g
             },
             {
-                base_url: "https://cypherscans.xyz/",
+                base_url: "https://cypho-scans.xyz",
                 chapter_list_selector: "#chapterlist .eph-num a"
             }
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Raw Kuma",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/raw-kuma-optimized.png"),
+                domains: ["rawkuma.com"],
+                home: "https://rawkuma.com/",
+                chapter_url: /chapter-[0-9]+.*\/$/g,
+                languages: ["jp", "cn", "hk", "kr"].join(",")
+            },
+            {}
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Thunder Scans",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/thunder-scans-optimized.png"),
+                domains: ["en-thunderscans.com"],
+                home: "https://en-thunderscans.com/",
+                chapter_url: /chapter-[0-9]+.*\/$/g,
+                languages: "en"
+            },
+            {
+                chapter_list_selector: "#chapterlist li a:not([data-coin])"
+            }
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Kappa Beast",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/kappa-beast-optimized.png"),
+                domains: ["kappabeast.com"],
+                home: "https://kappabeast.com/",
+                chapter_url: /.*\-\d+/g,
+                languages: "en"
+            },
+            {}
         )
         /*,
         new MangaStream_1_1_4(

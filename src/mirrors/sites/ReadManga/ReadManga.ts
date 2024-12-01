@@ -146,21 +146,8 @@ export const getReadMangaMirrors = (mirrorHelper: MirrorHelper): MirrorImplement
                 mirrorName: "ReadManga",
                 mirrorIcon: require("../../icons/readmanga-optimized.png"),
                 languages: "ru",
-                domains: ["readmanga.live", "readmanga.io"],
-                home: "https://readmanga.live",
-                canListFullMangas: false,
-                chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
-            },
-            {}
-        ),
-        new ReadManga(
-            mirrorHelper,
-            {
-                mirrorName: "MintManga",
-                mirrorIcon: require("../../icons/mintmanga-optimized.png"),
-                languages: "ru",
-                domains: ["mintmanga.live", "*.mintmanga.one"],
-                home: "https://24.mintmanga.one",
+                domains: ["readmanga.live", "readmanga.io", "*.readmanga.io"],
+                home: "https://zz.readmanga.io",
                 canListFullMangas: false,
                 chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
             },
@@ -172,8 +159,21 @@ export const getReadMangaMirrors = (mirrorHelper: MirrorHelper): MirrorImplement
                 mirrorName: "SeiManga",
                 mirrorIcon: require("../../icons/seimanga-optimized.png"),
                 languages: "ru",
-                domains: ["seimanga.me"],
-                home: "https://seimanga.me",
+                domains: ["seimanga.me", "*.seimanga.me"],
+                home: "https://1.seimanga.me",
+                canListFullMangas: false,
+                chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
+            },
+            {}
+        ),
+        new ReadManga(
+            mirrorHelper,
+            {
+                mirrorName: "Usagi",
+                mirrorIcon: require("../../icons/usagi-optimized.png"),
+                languages: "ru",
+                domains: ["web.usagi.one"],
+                home: "https://web.usagi.one",
                 canListFullMangas: false,
                 chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
             },

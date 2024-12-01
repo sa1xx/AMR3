@@ -1,9 +1,20 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import UnionLeitorIcon from "../icons/unionleitor-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
+import UnionLeitorIcon from "../../../icons/unionleitor-optimized.png"
 
-export class UnionLeitor extends BaseMirror implements MirrorImplementation {
+export class UnionLeitor extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Union Leitor",
+            canListFullMangas: false,
+            mirrorIcon: UnionLeitorIcon,
+            languages: "en",
+            domains: ["unionleitor.top", "unionmangas.top", "unionmangasbr.top"],
+            home: "https://unionmangasbr.top/",
+            chapter_url: /\/leitor\/.*\/.* /g,
+            disabled: true
+        })
+    }
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -14,7 +25,7 @@ export class UnionLeitor extends BaseMirror implements MirrorImplementation {
     languages = "en"
     domains = ["unionleitor.top", "unionmangas.top", "unionmangasbr.top"]
     home = "https://unionmangasbr.top/"
-    chapter_url = /\/leitor\/.*\/.*/g
+    chapter_url = /\/leitor\/.*\/.* /g
 
     async getMangaList(search: string) {
         var urlManga = this.home + "busca"
@@ -74,4 +85,5 @@ export class UnionLeitor extends BaseMirror implements MirrorImplementation {
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+        */
 }

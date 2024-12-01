@@ -156,23 +156,6 @@ export const getFoolSlideImplementations = (mirrorHelper: MirrorHelper): MirrorI
         new FoolSlide(
             mirrorHelper,
             {
-                mirrorName: "Evil Flowers",
-                mirrorIcon: require("../../icons/evilflowers-optimized.png"),
-                languages: "en",
-                domains: ["reader.evilflowers.com"],
-                home: "http://reader.evilflowers.com",
-                canListFullMangas: false /* to avoid loading 8 pages to load all mangas */,
-                chapter_url: /^\/read\/.+$/g
-            },
-            {
-                base_url: "http://reader.evilflowers.com",
-                search_all: false /* use FoolSlide search function */,
-                mglist_selector: ".title > a[href*='/series/']"
-            }
-        ),
-        new FoolSlide(
-            mirrorHelper,
-            {
                 mirrorName: "Kangaryu Team",
                 mirrorIcon: require("../../icons/kangaryuteam-optimized.png"),
                 languages: "fr",
@@ -182,6 +165,21 @@ export const getFoolSlideImplementations = (mirrorHelper: MirrorHelper): MirrorI
             },
             {
                 base_url: "http://kangaryu-team.fr/reader",
+                mglist_selector: ".title > a[href*='/series/']"
+            }
+        ),
+        new FoolSlide(
+            mirrorHelper,
+            {
+                mirrorName: "NIFTeam",
+                mirrorIcon: require("../../icons/_base-icon-optimized.png"),
+                languages: "it",
+                domains: ["read-nifteam.info"],
+                home: "https://read-nifteam.info/slide/",
+                chapter_url: /^\/slide\/read\/.+$/g
+            },
+            {
+                base_url: "http://read-nifteam.info/slide",
                 mglist_selector: ".title > a[href*='/series/']"
             }
         )
