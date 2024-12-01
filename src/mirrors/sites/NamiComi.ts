@@ -82,7 +82,8 @@ export class NamiComi extends BaseMirror implements MirrorImplementation {
     }
 
     isCurrentPageAChapterPage(doc, curUrl) {
-        return this.chapter_url.test(new URL(curUrl).pathname)
+        const test = this.chapter_url.test(new URL(curUrl).pathname)
+        return test
     }
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {
