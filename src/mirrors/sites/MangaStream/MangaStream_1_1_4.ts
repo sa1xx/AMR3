@@ -263,7 +263,35 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 domains: ["rawkuma.com"],
                 home: "https://rawkuma.com/",
                 chapter_url: /chapter-[0-9]+.*\/$/g,
-                languages: ["jp","cn","hk","kr"].join(',')
+                languages: ["jp", "cn", "hk", "kr"].join(",")
+            },
+            {}
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Thunder Scans",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/thunder-scans-optimized.png"),
+                domains: ["en-thunderscans.com"],
+                home: "https://en-thunderscans.com/",
+                chapter_url: /chapter-[0-9]+.*\/$/g,
+                languages: "en"
+            },
+            {
+                chapter_list_selector: "#chapterlist li a:not([data-coin])"
+            }
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Kappa Beast",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/kappa-beast-optimized.png"),
+                domains: ["kappabeast.com"],
+                home: "https://kappabeast.com/",
+                chapter_url: /.*\-\d+/g,
+                languages: "en"
             },
             {}
         )

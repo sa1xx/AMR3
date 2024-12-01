@@ -50,7 +50,6 @@ The following sections are the standard sections to use, please stick with them 
 -   Manga Buddy - Fixed chapter list
 -   Raw Kuma - Added Chinese and Korean language codes
 
-
 ### New Mirrors
 
 -   Radiant Scans (https://radiantscans.com/)
@@ -60,6 +59,9 @@ The following sections are the standard sections to use, please stick with them 
 -   AGR Comics (https://agrcomics.com) - This is a rebrand of Animated Glitch Comics
 -   Weeb Central - (https://weebcentral.com) - New site for Manga See
 -   Nami Comi - (https://namicomi.com/en/) - This seems to only work when it wants to, not sure why but I will investigate. For now reload on a chapter until the reader shows up
+-   Thunder Scans - (https://en-thunderscans.com/)
+-   Kappa Beast - (https://kappabeast.com/) - Getting cloudflare errors, will work if they remove strict protection
+-   NIFTeam - (https://read-nifteam.info/slide/)
 
 ### Disabled Mirrors
 

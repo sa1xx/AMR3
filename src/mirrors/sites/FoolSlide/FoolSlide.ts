@@ -167,6 +167,21 @@ export const getFoolSlideImplementations = (mirrorHelper: MirrorHelper): MirrorI
                 base_url: "http://kangaryu-team.fr/reader",
                 mglist_selector: ".title > a[href*='/series/']"
             }
+        ),
+        new FoolSlide(
+            mirrorHelper,
+            {
+                mirrorName: "NIFTeam",
+                mirrorIcon: require("../../icons/_base-icon-optimized.png"),
+                languages: "it",
+                domains: ["read-nifteam.info"],
+                home: "https://read-nifteam.info/slide/",
+                chapter_url: /^\/slide\/read\/.+$/g
+            },
+            {
+                base_url: "http://read-nifteam.info/slide",
+                mglist_selector: ".title > a[href*='/series/']"
+            }
         )
     ]
 }

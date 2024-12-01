@@ -94,10 +94,38 @@ const mangaFoxRule: RuleInfo = {
     }
 }
 
+const kappaBeastRule: RuleInfo = {
+    action: {
+        // Replaces Referer and Origin request headers to bypass site's protection
+        type: "modifyHeaders" as const,
+        requestHeaders: [
+            {
+                header: "Referer",
+                operation: "set" as const,
+                value: "https://kappabeast.com"
+            },
+            {
+                header: "Origin",
+                operation: "set" as const,
+                value: "https://kappabeast.com"
+            }
+        ]
+    },
+    condition: {
+        // applies only to requests from this extension
+        initiatorDomains: [thisExtensionId],
+        // for URLs that match the following filter
+        urlFilter: "|https://kappabeast.com/*",
+        // and only for our fetch requests
+        resourceTypes: ["xmlhttprequest" as const]
+    }
+}
+
 const amrNetRules: browser.DeclarativeNetRequest.Rule[] = [
     { id: 1, ...manhwaTopRule },
     { id: 2, ...mangaHubRule },
-    { id: 3, ...mangaFoxRule }
+    { id: 3, ...mangaFoxRule },
+    { id: 4, ...kappaBeastRule }
 ]
 
 export function getNetRulesForMirrors(): browser.DeclarativeNetRequest.Rule[] {
