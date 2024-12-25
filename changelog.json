@@ -1,6 +1,26 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### Mirror Fixes\r\n-   Weeb Central - Fixed chapter list\r\n\r\n### New Mirrors\r\n-   Juin Jutsu Team (https://www.juinjutsureader.ovh)\r\n-   Manga World (https://www.mangaworld.ac)",
+            "parsed": {
+                "_": [
+                    "Weeb Central - Fixed chapter list",
+                    "Juin Jutsu Team (https://www.juinjutsureader.ovh)",
+                    "Manga World (https://www.mangaworld.ac)"
+                ],
+                "Mirror Fixes": [
+                    "Weeb Central - Fixed chapter list"
+                ],
+                "New Mirrors": [
+                    "Juin Jutsu Team (https://www.juinjutsureader.ovh)",
+                    "Manga World (https://www.mangaworld.ac)"
+                ]
+            }
+        },
+        {
             "version": "3.0.3",
             "title": "[3.0.3] - 2024-12-01",
             "date": "2024-12-01",

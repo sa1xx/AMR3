@@ -58,6 +58,8 @@ import { AGRComics } from "./sites/AGRComics"
 import { FlameComics } from "./sites/FlameComics"
 import { WeebCentral } from "./sites/WeebCentral"
 import { NamiComi } from "./sites/NamiComi"
+import { JuinJutsuTeam } from "./sites/JuinJutsuTeam"
+import { MangaWorld } from "./sites/MangaWorld"
 
 import { TestSite } from "./sites/_localTestServer"
 
@@ -157,6 +159,8 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new FlameComics(mirrorHelper),
             new WeebCentral(mirrorHelper),
             new NamiComi(mirrorHelper),
+            new JuinJutsuTeam(mirrorHelper),
+            new MangaWorld(mirrorHelper),
 
             new TestSite(mirrorHelper),
 
