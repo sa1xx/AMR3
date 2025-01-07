@@ -4,15 +4,17 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### Mirror Fixes\r\n-   Weeb Central - Fixed chapter list\r\n\r\n### New Mirrors\r\n-   Juin Jutsu Team (https://www.juinjutsureader.ovh)\r\n-   Manga World (https://www.mangaworld.ac)",
+            "body": "### Mirror Fixes\r\n\r\n-   Weeb Central - Fixed chapter list\r\n-   ReadManga, SeiManga, Usagi - Fixed chapter loading\r\n\r\n### New Mirrors\r\n\r\n-   Juin Jutsu Team (https://www.juinjutsureader.ovh)\r\n-   Manga World (https://www.mangaworld.ac)",
             "parsed": {
                 "_": [
                     "Weeb Central - Fixed chapter list",
+                    "ReadManga, SeiManga, Usagi - Fixed chapter loading",
                     "Juin Jutsu Team (https://www.juinjutsureader.ovh)",
                     "Manga World (https://www.mangaworld.ac)"
                 ],
                 "Mirror Fixes": [
-                    "Weeb Central - Fixed chapter list"
+                    "Weeb Central - Fixed chapter list",
+                    "ReadManga, SeiManga, Usagi - Fixed chapter loading"
                 ],
                 "New Mirrors": [
                     "Juin Jutsu Team (https://www.juinjutsureader.ovh)",

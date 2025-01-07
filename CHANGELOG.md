@@ -22,6 +22,7 @@ The following sections are the standard sections to use, please stick with them 
 ### Mirror Fixes
 
 -   Weeb Central - Fixed chapter list
+-   ReadManga, SeiManga, Usagi - Fixed chapter loading
 
 ### New Mirrors
 
