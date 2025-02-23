@@ -10,6 +10,7 @@ import { getFunMangaImplementations } from "./sites/abstract/FunManga"
 import { getMyMangaReaderCMSMirrors } from "./sites/MyMangaReaderCMS/MyMangaReaderCMS"
 import { getReadMangaMirrors } from "./sites/ReadManga/ReadManga"
 import { getLilianaImplementations } from "./sites/Liliana/LilianaImplementations"
+import { getPizzaReaderImplementations } from "./sites/abstract/PizzaReader"
 
 import { MirrorHelper } from "./MirrorHelper"
 import { Manga4Life } from "./sites/Manga4Life"
@@ -58,6 +59,8 @@ import { AGRComics } from "./sites/AGRComics"
 import { FlameComics } from "./sites/FlameComics"
 import { WeebCentral } from "./sites/WeebCentral"
 import { NamiComi } from "./sites/NamiComi"
+import { JuinJutsuTeam } from "./sites/JuinJutsuTeam"
+import { MangaWorld } from "./sites/MangaWorld"
 
 import { TestSite } from "./sites/_localTestServer"
 
@@ -111,6 +114,8 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             ...getMyMangaReaderCMSMirrors(mirrorHelper),
             ...getReadMangaMirrors(mirrorHelper),
             ...getLilianaImplementations(mirrorHelper),
+            ...getPizzaReaderImplementations(mirrorHelper),
+
             new MangadexV5(mirrorHelper),
             new WebToon(mirrorHelper),
             new MangaFox(mirrorHelper),
@@ -157,6 +162,8 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new FlameComics(mirrorHelper),
             new WeebCentral(mirrorHelper),
             new NamiComi(mirrorHelper),
+            new JuinJutsuTeam(mirrorHelper),
+            new MangaWorld(mirrorHelper),
 
             new TestSite(mirrorHelper),
 

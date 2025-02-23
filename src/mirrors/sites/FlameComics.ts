@@ -13,7 +13,7 @@ export class FlameComics extends BaseMirror implements MirrorImplementation {
     languages = "en"
     domains = ["flamecomics.xyz"]
     home = "https://flamecomics.xyz"
-    chapter_url =  /\/series\/\d+\/.*$/g
+    chapter_url = /\/series\/\d+\/.*$/g
 
     async getMangaList(search: string) {
         const doc = await this.mirrorHelper.loadPage(this.home + "/comics", {
@@ -27,12 +27,8 @@ export class FlameComics extends BaseMirror implements MirrorImplementation {
         const matches = regex.exec(doc)
         const data = JSON.parse(matches[1])
 
-
         data.props.pageProps.series.forEach(element =>
-            res.push([
-                element.title.trim(),
-                this.home + '/series/' + element.series_id
-            ])
+            res.push([element.title.trim(), this.home + "/series/" + element.series_id])
         )
         return res
     }
@@ -45,17 +41,11 @@ export class FlameComics extends BaseMirror implements MirrorImplementation {
         const matches = regex.exec(doc)
         const data = JSON.parse(matches[1])
 
-
         data.props.pageProps.chapters.forEach(element =>
-            res.push([
-                ("Chapter " + element.chapter).trim(),
-                urlManga + "/" + element.token
-            ])
+            res.push([("Chapter " + element.chapter).trim(), urlManga + "/" + element.token])
         )
 
-
         return res
-
     }
 
     async getCurrentPageInfo(doc, curUrl) {
@@ -64,7 +54,7 @@ export class FlameComics extends BaseMirror implements MirrorImplementation {
         const data = JSON.parse(matches[1])
         return {
             name: data.props.pageProps.chapter.title,
-            currentMangaURL: this.home + '/series/' + data.props.pageProps.chapter.series_id,
+            currentMangaURL: this.home + "/series/" + data.props.pageProps.chapter.series_id,
             currentChapterURL: curUrl
         }
     }
@@ -72,10 +62,9 @@ export class FlameComics extends BaseMirror implements MirrorImplementation {
     async getListImages(doc) {
         const $ = this.parseHtml(doc)
         const res = []
-        $("img[loading='lazy']").each(function () {
+        $("img[src*='cdn.']").each(function () {
             res.push($(this).attr("src"))
         })
-
 
         return res
     }

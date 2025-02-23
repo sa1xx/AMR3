@@ -461,7 +461,14 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 mirrorName: "Reset Scans",
                 mirrorIcon: ResetScansIcon,
                 languages: "en",
-                domains: ["reset-scans.com", "reset-scans.us", "reset-scans.xyz", "resetscan.com", "reset-scans.co", "rspro.xyz"],
+                domains: [
+                    "reset-scans.com",
+                    "reset-scans.us",
+                    "reset-scans.xyz",
+                    "resetscan.com",
+                    "reset-scans.co",
+                    "rspro.xyz"
+                ],
                 home: "https://rspro.xyz/",
                 chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|devmax)\/.*\/.+$/g,
                 canListFullMangas: false
@@ -653,7 +660,8 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
             },
             {
                 search_url: "https://platinumscans.com/",
-                chapter_list_ajax: true
+                chapter_list_ajax: true,
+                isekai_chapter_url: true
             }
         ),
         new Madara(
@@ -735,11 +743,11 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 domains: ["evilflowers.com"],
                 home: "http://evilflowers.com",
                 canListFullMangas: false,
-                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|project)\/.*\/.+$/g,
+                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|project)\/.*\/.+$/g
             },
             {
                 chapter_list_ajax: true,
-                isekai_chapter_url: true,
+                isekai_chapter_url: true
                 // mglist_selector: ".title > a[href*='/series/']"
             }
         ),
@@ -752,11 +760,11 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 domains: ["likemanga.in"],
                 home: "likemanga.in",
                 canListFullMangas: false,
-                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|project)\/.*\/.+$/g,
+                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|project)\/.*\/.+$/g
             },
             {
                 chapter_list_ajax: true,
-                isekai_chapter_url: true,
+                isekai_chapter_url: true
                 // mglist_selector: ".title > a[href*='/series/']"
             }
         )

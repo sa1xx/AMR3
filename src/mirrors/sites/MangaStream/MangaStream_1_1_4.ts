@@ -294,6 +294,19 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 languages: "en"
             },
             {}
+        ),
+        new MangaStream_1_1_4(
+            mirrorHelper,
+            {
+                mirrorName: "Surya Scans",
+                canListFullMangas: false,
+                mirrorIcon: require("../../icons/surya-scans-optimized.png"),
+                domains: ["suryascans.org"],
+                home: "https://suryascans.org/",
+                chapter_url: /chapter-[0-9]+.*\/$/g,
+                languages: "en"
+            },
+            {}
         )
         /*,
         new MangaStream_1_1_4(
