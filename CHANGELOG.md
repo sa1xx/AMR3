@@ -17,6 +17,12 @@ The following sections are the standard sections to use, please stick with them 
 -   Disabled Mirrors
 -   Notes - This is the catchall for anything that does not fit in the other sections.
 
+## [Unreleased]
+
+### New Features
+
+-   Added option to modify custom categories in the reader
+
 ## [3.0.5] - 2025-02-23
 
 ### Mirror Fixes

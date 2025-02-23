@@ -65,7 +65,6 @@ export class MangaStream_1_1_4 extends BaseMirror implements MirrorImplementatio
         $(this.options.chapter_list_selector, doc).each(function (index) {
             res.push([$(".chapternum", this).text().trim(), self.options.urlProcessorChapter($(this).attr("href"))])
         })
-        console.debug(res)
         return res
     }
 

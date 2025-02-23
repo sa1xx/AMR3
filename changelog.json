@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### New Features\r\n\r\n-   Added option to modify custom categories in the reader",
+            "parsed": {
+                "_": [
+                    "Added option to modify custom categories in the reader"
+                ],
+                "New Features": [
+                    "Added option to modify custom categories in the reader"
+                ]
+            }
+        },
+        {
             "version": "3.0.5",
             "title": "[3.0.5] - 2025-02-23",
             "date": "2025-02-23",
