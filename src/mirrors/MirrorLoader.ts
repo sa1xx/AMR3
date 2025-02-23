@@ -10,6 +10,7 @@ import { getFunMangaImplementations } from "./sites/abstract/FunManga"
 import { getMyMangaReaderCMSMirrors } from "./sites/MyMangaReaderCMS/MyMangaReaderCMS"
 import { getReadMangaMirrors } from "./sites/ReadManga/ReadManga"
 import { getLilianaImplementations } from "./sites/Liliana/LilianaImplementations"
+import { getPizzaReaderImplementations } from "./sites/abstract/PizzaReader"
 
 import { MirrorHelper } from "./MirrorHelper"
 import { Manga4Life } from "./sites/Manga4Life"
@@ -113,6 +114,8 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             ...getMyMangaReaderCMSMirrors(mirrorHelper),
             ...getReadMangaMirrors(mirrorHelper),
             ...getLilianaImplementations(mirrorHelper),
+            ...getPizzaReaderImplementations(mirrorHelper),
+
             new MangadexV5(mirrorHelper),
             new WebToon(mirrorHelper),
             new MangaFox(mirrorHelper),

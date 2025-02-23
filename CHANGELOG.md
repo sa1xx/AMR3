@@ -23,11 +23,15 @@ The following sections are the standard sections to use, please stick with them 
 
 -   Weeb Central - Fixed chapter list
 -   ReadManga, SeiManga, Usagi - Fixed chapter loading
+-   Flame Comics - Fixed loading the first images
+-   Platinum Crown - Fixed chapter list
 
 ### New Mirrors
 
 -   Juin Jutsu Team (https://www.juinjutsureader.ovh)
 -   Manga World (https://www.mangaworld.ac)
+-   Phoenix Scans (https://www.phoenixscans.com/)
+-   Surya Scans (https://suryascans.org)
 
 ## [3.0.3] - 2024-12-01
 

@@ -4,21 +4,29 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### Mirror Fixes\r\n\r\n-   Weeb Central - Fixed chapter list\r\n-   ReadManga, SeiManga, Usagi - Fixed chapter loading\r\n\r\n### New Mirrors\r\n\r\n-   Juin Jutsu Team (https://www.juinjutsureader.ovh)\r\n-   Manga World (https://www.mangaworld.ac)",
+            "body": "### Mirror Fixes\r\n\r\n-   Weeb Central - Fixed chapter list\r\n-   ReadManga, SeiManga, Usagi - Fixed chapter loading\r\n-   Flame Comics - Fixed loading the first images\r\n-   Platinum Crown - Fixed chapter list\r\n\r\n### New Mirrors\r\n\r\n-   Juin Jutsu Team (https://www.juinjutsureader.ovh)\r\n-   Manga World (https://www.mangaworld.ac)\r\n-   Phoenix Scans (https://www.phoenixscans.com/)\r\n-   Surya Scans (https://suryascans.org)",
             "parsed": {
                 "_": [
                     "Weeb Central - Fixed chapter list",
                     "ReadManga, SeiManga, Usagi - Fixed chapter loading",
+                    "Flame Comics - Fixed loading the first images",
+                    "Platinum Crown - Fixed chapter list",
                     "Juin Jutsu Team (https://www.juinjutsureader.ovh)",
-                    "Manga World (https://www.mangaworld.ac)"
+                    "Manga World (https://www.mangaworld.ac)",
+                    "Phoenix Scans (https://www.phoenixscans.com/)",
+                    "Surya Scans (https://suryascans.org)"
                 ],
                 "Mirror Fixes": [
                     "Weeb Central - Fixed chapter list",
-                    "ReadManga, SeiManga, Usagi - Fixed chapter loading"
+                    "ReadManga, SeiManga, Usagi - Fixed chapter loading",
+                    "Flame Comics - Fixed loading the first images",
+                    "Platinum Crown - Fixed chapter list"
                 ],
                 "New Mirrors": [
                     "Juin Jutsu Team (https://www.juinjutsureader.ovh)",
-                    "Manga World (https://www.mangaworld.ac)"
+                    "Manga World (https://www.mangaworld.ac)",
+                    "Phoenix Scans (https://www.phoenixscans.com/)",
+                    "Surya Scans (https://suryascans.org)"
                 ]
             }
         },
