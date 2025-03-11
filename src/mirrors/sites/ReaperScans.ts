@@ -38,9 +38,11 @@ export class ReaperScans extends BaseMirror implements MirrorImplementation {
         const matches = regex.exec(doc)
         const seriesId = matches[1]
 
-        const json = await this.mirrorHelper.loadJson(
-            `${this.apiBaseUrl}chapter/query?page=1&perPage=1000&series_id=${seriesId}`
-        )
+        // const seriesUrl = `${this.apiBaseUrl}chapter/query?page=1&perPage=1000&series_id=${seriesId}`
+        // https://api.reaperscans.com/chapters/162?page=1&perPage=30&query=&order=desc
+        const seriesUrl = `${this.apiBaseUrl}chapters/${seriesId}?page=1&perPage=1000&order=desc`
+
+        const json = await this.mirrorHelper.loadJson(seriesUrl)
 
         /*
         https://reapercomics.com/series/seoul-station-necromancer/chapter-141

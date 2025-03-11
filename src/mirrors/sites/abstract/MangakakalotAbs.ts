@@ -131,11 +131,12 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
             mirrorName: "Mangakakalot",
             mirrorIcon: MangakakalotIcon,
             languages: "en",
-            domains: ["mangakakalot.com"],
-            home: "https://mangakakalot.com/",
-            chapter_url: /^\/chapter\/.*\/.+$/
-        }),
-        new MangakakalotAbs(
+            domains: ["mangakakalot.com", "mangakakalot.gg"],
+            home: "https://www.mangakakalot.gg/",
+            // chapter_url: /^\/chapter\/.*\/.+$/
+            chapter_url: /^\/manga\/.*\/chapter-.*$/
+        })
+        /*new MangakakalotAbs(
             mirrorHelper,
             {
                 mirrorName: "Manganelo",
@@ -150,9 +151,10 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
                     "chap.manganelo.com",
                     "chapmanganato.com",
                     "chapmanganelo.com",
-                    "chapmanganato.to"
+                    "chapmanganato.to",
+                    "nelomanga.org"
                 ],
-                home: "https://manganato.com/",
+                home: "https://nelomanga.org/",
                 chapter_url: /^\/manga-.*\/chapter-\d+.*$/
             },
             {
@@ -162,6 +164,6 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
                     '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
                 images_selector: ".container-chapter-reader img"
             }
-        )
+        )*/
     ]
 }

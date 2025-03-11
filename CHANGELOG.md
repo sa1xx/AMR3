@@ -23,6 +23,15 @@ The following sections are the standard sections to use, please stick with them 
 
 -   Added option to modify custom categories in the reader
 
+### Mirror Fixes
+
+-   Reaper Scans - Fixed chapter list
+-   Mangakakalot - Changed URL
+-   Manganelo - Changed URL and switched to Madara Theme
+-   Manhuas - Changed URL
+-   Manhwatop - Fixed chapter list
+-   Toonily - Url format changed
+
 ## [3.0.5] - 2025-02-23
 
 ### Mirror Fixes

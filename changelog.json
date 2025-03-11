@@ -4,13 +4,27 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### New Features\r\n\r\n-   Added option to modify custom categories in the reader",
+            "body": "### New Features\r\n\r\n-   Added option to modify custom categories in the reader\r\n\r\n### Mirror Fixes\r\n\r\n-   Reaper Scans - Fixed chapter list\r\n-   Mangakakalot - Changed URL\r\n-   Manganelo - Changed URL and switched to Madara Theme\r\n-   Manhuas - Changed URL\r\n-   Manhwatop - Fixed chapter list\r\n-   Toonily - Url format changed",
             "parsed": {
                 "_": [
-                    "Added option to modify custom categories in the reader"
+                    "Added option to modify custom categories in the reader",
+                    "Reaper Scans - Fixed chapter list",
+                    "Mangakakalot - Changed URL",
+                    "Manganelo - Changed URL and switched to Madara Theme",
+                    "Manhuas - Changed URL",
+                    "Manhwatop - Fixed chapter list",
+                    "Toonily - Url format changed"
                 ],
                 "New Features": [
                     "Added option to modify custom categories in the reader"
+                ],
+                "Mirror Fixes": [
+                    "Reaper Scans - Fixed chapter list",
+                    "Mangakakalot - Changed URL",
+                    "Manganelo - Changed URL and switched to Madara Theme",
+                    "Manhuas - Changed URL",
+                    "Manhwatop - Fixed chapter list",
+                    "Toonily - Url format changed"
                 ]
             }
         },

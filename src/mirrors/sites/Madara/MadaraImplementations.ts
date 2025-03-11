@@ -78,7 +78,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 languages: "en",
                 domains: ["toonily.com"],
                 home: "https://toonily.com/",
-                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series)\/.*\/.+$/g
+                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|serie)\/.*\/.+$/g
             },
             {
                 img_src: "data-src",
@@ -416,7 +416,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
             },
             {
                 search_url: "https://manhwatop.com/",
-                chapter_list_ajax: true,
+                // chapter_list_ajax: true,
                 img_src: "data-src"
             }
         ),
@@ -619,7 +619,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 languages: "en",
                 domains: ["manhuaus.com"],
                 home: "https://manhuaus.com/",
-                chapter_url: /\/manga\/.+\/chapter\-.+$/g,
+                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series)\/.*\/.+$/g,
                 canListFullMangas: false
             },
             {
@@ -765,6 +765,23 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
             {
                 chapter_list_ajax: true,
                 isekai_chapter_url: true
+                // mglist_selector: ".title > a[href*='/series/']"
+            }
+        ),
+        new Madara(
+            mirrorHelper,
+            {
+                mirrorName: "Manganelo",
+                mirrorIcon: require("../../icons/manganelo-optimized.png"),
+                languages: "en",
+                domains: ["nelomanga.org"],
+                home: "https://nelomanga.org/",
+                canListFullMangas: false,
+                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|project)\/.*\/.+$/g
+            },
+            {
+                chapter_list_ajax: true
+                // isekai_chapter_url: true
                 // mglist_selector: ".title > a[href*='/series/']"
             }
         )
