@@ -4,7 +4,7 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### New Features\r\n\r\n-   Added option to modify custom categories in the reader\r\n\r\n### Mirror Fixes\r\n\r\n-   Reaper Scans - Fixed chapter list\r\n-   Mangakakalot - Changed URL\r\n-   Manganelo - Changed URL and switched to Madara Theme\r\n-   Manhuas - Changed URL\r\n-   Manhwatop - Fixed chapter list\r\n-   Toonily - Url format changed",
+            "body": "### New Features\r\n\r\n-   Added option to modify custom categories in the reader\r\n\r\n### Mirror Fixes\r\n\r\n-   Reaper Scans - Fixed chapter list\r\n-   Mangakakalot - Changed URL\r\n-   Manganelo - Changed URL and switched to Madara Theme\r\n-   Manhuas - Changed URL\r\n-   Manhwatop - Fixed chapter list\r\n-   Toonily - Url format changed\r\n-   Manhwax - Changed URL\r\n\r\n### New Mirrors\r\n-   MangaNato - They have rebranded again and made a new url, this will be treated as seperate from the Nelo Manga site (https://www.natomanga.com/)",
             "parsed": {
                 "_": [
                     "Added option to modify custom categories in the reader",
@@ -13,7 +13,9 @@
                     "Manganelo - Changed URL and switched to Madara Theme",
                     "Manhuas - Changed URL",
                     "Manhwatop - Fixed chapter list",
-                    "Toonily - Url format changed"
+                    "Toonily - Url format changed",
+                    "Manhwax - Changed URL",
+                    "MangaNato - They have rebranded again and made a new url, this will be treated as seperate from the Nelo Manga site (https://www.natomanga.com/)"
                 ],
                 "New Features": [
                     "Added option to modify custom categories in the reader"
@@ -24,7 +26,11 @@
                     "Manganelo - Changed URL and switched to Madara Theme",
                     "Manhuas - Changed URL",
                     "Manhwatop - Fixed chapter list",
-                    "Toonily - Url format changed"
+                    "Toonily - Url format changed",
+                    "Manhwax - Changed URL"
+                ],
+                "New Mirrors": [
+                    "MangaNato - They have rebranded again and made a new url, this will be treated as seperate from the Nelo Manga site (https://www.natomanga.com/)"
                 ]
             }
         },

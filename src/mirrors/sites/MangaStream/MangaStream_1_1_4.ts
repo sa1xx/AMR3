@@ -120,12 +120,12 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 mirrorName: "Manhwax",
                 mirrorIcon: ManhwaxIcon,
                 languages: "en",
-                domains: ["manhwax.com", "manhwax.org"],
-                home: "https://manhwax.org/",
+                domains: ["manhwax.com", "manhwax.org", "manhwax.top"],
+                home: "https://manhwax.top/",
                 chapter_url: /\/.*?chapter-[0-9]+.*\//g
             },
             {
-                base_url: "https://manhwax.org/"
+                base_url: "https://manhwax.top/"
             }
         ),
         new MangaStream_1_1_4(

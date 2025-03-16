@@ -135,35 +135,24 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
             home: "https://www.mangakakalot.gg/",
             // chapter_url: /^\/chapter\/.*\/.+$/
             chapter_url: /^\/manga\/.*\/chapter-.*$/
-        })
-        /*new MangakakalotAbs(
+        }),
+        new MangakakalotAbs(
             mirrorHelper,
             {
-                mirrorName: "Manganelo",
+                mirrorName: "MangaNato",
                 mirrorIcon: ManganeloIcon,
                 languages: "en",
-                domains: [
-                    "manganato.com",
-                    "chap.manganato.com",
-                    "m.manganato.com",
-                    "readmanganato.com",
-                    "m.manganelo.com",
-                    "chap.manganelo.com",
-                    "chapmanganato.com",
-                    "chapmanganelo.com",
-                    "chapmanganato.to",
-                    "nelomanga.org"
-                ],
-                home: "https://nelomanga.org/",
-                chapter_url: /^\/manga-.*\/chapter-\d+.*$/
-            },
-            {
-                series_list_selector: ".search-story-item a.item-title",
-                chapter_list_selector: ".row-content-chapter a",
-                chapter_information_selector:
-                    '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
-                images_selector: ".container-chapter-reader img"
-            }
-        )*/
+                domains: ["natomanga.com"],
+                home: "https://www.natomanga.com/",
+                chapter_url: /^\/manga\/.*\/chapter-.*$/
+            } /*,
+        {
+            series_list_selector: ".search-story-item a.item-title",
+            chapter_list_selector: ".row-content-chapter a",
+            chapter_information_selector:
+                '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
+            images_selector: ".container-chapter-reader img"
+        }*/
+        )
     ]
 }

@@ -31,6 +31,11 @@ The following sections are the standard sections to use, please stick with them 
 -   Manhuas - Changed URL
 -   Manhwatop - Fixed chapter list
 -   Toonily - Url format changed
+-   Manhwax - Changed URL
+
+### New Mirrors
+
+-   MangaNato - They have rebranded again and made a new url, this will be treated as seperate from the Nelo Manga site (https://www.natomanga.com/)
 
 ## [3.0.5] - 2025-02-23
 
