@@ -32,6 +32,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Manhwatop - Fixed chapter list
 -   Toonily - Url format changed
 -   Manhwax - Changed URL
+-   ManhwaHentai - Fixed chapter list
 
 ### New Mirrors
 

@@ -36,6 +36,7 @@ import ManhuausIcon from "../../icons/manhuaus-optimized.png"
 import GourmetScansIcon from "../../icons/gourmet-scans-optimized.png"
 import MangalekIcon from "../../icons/manga-lek-optimized.png"
 import { ManyToon } from "./ManyToon"
+import { ManhwaHentai } from "./ManhwaHentai"
 
 /**
  * All implementations based of Madara are placed here
@@ -85,7 +86,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 secondary_img_src: "src"
             }
         ),
-        new Madara(
+        new ManhwaHentai(
             mirrorHelper,
             {
                 mirrorName: "ManhwaHentai",
@@ -100,6 +101,8 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 img_src: "src",
                 secondary_img_src: "data-src",
                 chapter_list_ajax: true,
+                chapter_list_ajax_selctor_type: "html",
+                chapter_list_ajax_selctor: "#manga-chapters-holder",
                 isekai_chapter_url: false
             }
         ),
