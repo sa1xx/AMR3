@@ -41,6 +41,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Reset Scans - Changed URL and added fix for locked chapters
 -   Sad Scans - Fixed chapter list and image loading
 -   Void Scans - Switched to new website theme
+-   Asura - This may only work for like 10 seconds but I rewrote the mirror again
 
 ### New Mirrors
 

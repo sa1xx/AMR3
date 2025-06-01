@@ -157,7 +157,7 @@ class MangaStream extends BaseMirror implements MirrorImplementation {
 
 export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): MirrorImplementation[] => {
     return [
-        new MangaStream(
+        /*new MangaStream(
             mirrorHelper,
             {
                 mirrorName: "Asura Scans",
@@ -200,7 +200,7 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                     return url
                 }
             }
-        ),
+        ),*/
         /*new MangaStream(
             mirrorHelper,
             {

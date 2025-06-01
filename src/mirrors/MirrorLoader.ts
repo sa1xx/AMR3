@@ -54,6 +54,7 @@ import { JuinJutsuTeam } from "./sites/JuinJutsuTeam"
 import { MangaWorld } from "./sites/MangaWorld"
 
 import { TestSite } from "./sites/_localTestServer"
+import { AsuraScans } from "./sites/AsuraScans"
 
 export class MirrorLoader {
     lookupMap: Map<string, MirrorImplementation>
@@ -147,6 +148,7 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new JuinJutsuTeam(mirrorHelper),
             new MangaWorld(mirrorHelper),
             //new IsekaiScan(mirrorHelper),
+            new AsuraScans(mirrorHelper),
 
             new TestSite(mirrorHelper),
 
