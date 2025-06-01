@@ -33,10 +33,54 @@ The following sections are the standard sections to use, please stick with them 
 -   Toonily - Url format changed
 -   Manhwax - Changed URL
 -   ManhwaHentai - Fixed chapter list
+-   Cypher Scans - Changed URL
+-   Manga World - Changed URL
+-   Manga-Freak - Changed URL
+-   Manga Park - Updated chapter url regex
+-   Raw Kuma - Changed URL
+-   Reset Scans - Changed URL and added fix for locked chapters
+-   Sad Scans - Fixed chapter list and image loading
+-   Void Scans - Switched to new website theme
 
 ### New Mirrors
 
 -   MangaNato - They have rebranded again and made a new url, this will be treated as seperate from the Nelo Manga site (https://www.natomanga.com/)
+
+### Disabled Mirrors
+
+-   Animated Glitch Scans
+-   Aqua Manga
+-   Comic Kiba
+-   Dark Scan
+-   GD Scans
+-   Immortal Updates
+-   IsekaiScans
+-   Komikid
+-   Komiku
+-   Komikstation
+-   Leviatan Scans
+-   Lynx Scans
+-   Manga 347
+-   Manga Al-arab
+-   Manga BTT
+-   Manga Demon
+-   Manga Galaxy
+-   Manga Komi
+-   Manga4Life
+-   MangaInn
+-   MangaLek
+-   MangaSee
+-   Manhwa Freak
+-   Night Comic
+-   Platinum Crown
+-   Read M
+-   Reaper Scans
+-   Reaper Scans (Fake)
+-   Seri Manga
+-   Shadow Trad
+-   Surya Toon
+-   Za Hard Top
+-   Zin Manga
 
 ## [3.0.5] - 2025-02-23
 

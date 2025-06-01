@@ -1,16 +1,28 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import MangaSeeIcon from "../icons/mangasee-optimized.png"
+import MangaIcon from "../../../icons/mangasee-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class MangaSee extends BaseMirror implements MirrorImplementation {
+export class MangaSee extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "MangaSee",
+            canListFullMangas: false,
+            mirrorIcon: MangaIcon,
+            languages: "en",
+            domains: ["mangaseeonline.us", "mangasee123.com"],
+            home: "https://mangasee123.com",
+            chapter_url: /^\/read-online\/.+$/,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
 
     mirrorName = "MangaSee"
     canListFullMangas = true
-    mirrorIcon = MangaSeeIcon
+    mirrorIcon = MangaIcon
     languages = "en"
     domains = ["mangaseeonline.us", "mangasee123.com"]
     home = "https://mangasee123.com"
@@ -134,5 +146,5 @@ export class MangaSee extends BaseMirror implements MirrorImplementation {
     PageImage(PageString) {
         var s = "000" + PageString
         return s.substring(s.length - 3)
-    }
+    }*/
 }

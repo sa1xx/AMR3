@@ -12,8 +12,8 @@ export class BananaScan extends BaseMirror implements MirrorImplementation {
     canListFullMangas = false
     mirrorIcon = BananaScanIcon
     languages = "fr"
-    domains = ["banana-scan.com"]
-    home = "https://banana-scan.com"
+    domains = ["banana-scan.com", "bananascans"]
+    home = "https://bananascans.com"
     chapter_url = /\/.*?-[0-9]+.*\//g
 
     async getMangaList(search: string) {

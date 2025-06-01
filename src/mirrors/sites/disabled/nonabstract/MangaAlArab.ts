@@ -1,10 +1,21 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import MangaAlArabIcon from "../icons/mangaae-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
+import MirrorIcon from "../../../icons/mangaae-optimized.png"
 
-export class MangaAlArab extends BaseMirror implements MirrorImplementation {
-    constructor(amrLoader: MirrorHelper) {
+export class MangaAlArab extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Manga Al-arab",
+            canListFullMangas: false,
+            mirrorIcon: MirrorIcon,
+            languages: "en",
+            domains: ["manga.ae"],
+            home: "http://manga.ae/",
+            chapter_url: /read-.*-chapter-.*/g,
+            disabled: true
+        })
+    }
+
+    /*constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
 
@@ -90,5 +101,5 @@ export class MangaAlArab extends BaseMirror implements MirrorImplementation {
             return url + "/"
         }
         return url
-    }
+    }*/
 }

@@ -1,9 +1,20 @@
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import { BaseMirror } from "./abstract/BaseMirror"
-import mirrorIcon from "../icons/manga4life-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
+import mirrorIcon from "../../../icons/manga4life-optimized.png"
 
-export class Manga4Life extends BaseMirror implements MirrorImplementation {
+export class Manga4Life extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Manga4Life",
+            canListFullMangas: false,
+            mirrorIcon: mirrorIcon,
+            languages: "en",
+            domains: ["manga4life.com"],
+            home: "http://manga4life.com/",
+            chapter_url: /read-.*-chapter-.*/g,
+            disabled: true
+        })
+    }
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -128,5 +139,5 @@ export class Manga4Life extends BaseMirror implements MirrorImplementation {
 
     isCurrentPageAChapterPage(doc: string) {
         return this.queryHtml(doc, "div.ImageGallery").length > 0
-    }
+    }*/
 }

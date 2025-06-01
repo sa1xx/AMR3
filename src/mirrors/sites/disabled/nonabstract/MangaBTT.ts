@@ -1,9 +1,23 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import MangaBTTIcon from "../icons/manga-btt-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
+import { BaseMirror } from "../../abstract/BaseMirror"
+import { MirrorImplementation } from "../../../../types/common"
+import { MirrorHelper } from "../../../MirrorHelper"
+import MirrorIcon from "../../../icons/manga-btt-optimized.png"
 
-export class MangaBTT extends BaseMirror implements MirrorImplementation {
+export class MangaBTT extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Manga BTT",
+            canListFullMangas: false,
+            mirrorIcon: MirrorIcon,
+            languages: "en",
+            domains: ["manhwabtt.com"],
+            home: "http://manhwabtt.com/",
+            chapter_url: /read-.*-chapter-.*/g,
+            disabled: true
+        })
+    }
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -86,4 +100,5 @@ export class MangaBTT extends BaseMirror implements MirrorImplementation {
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+    */
 }

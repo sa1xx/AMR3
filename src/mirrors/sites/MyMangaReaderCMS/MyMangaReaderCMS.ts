@@ -114,21 +114,5 @@ class MyMangaReaderCMS extends BaseMirror implements MirrorImplementation {
 }
 
 export const getMyMangaReaderCMSMirrors = (mirrorHelper: MirrorHelper): MirrorImplementation[] => {
-    return [
-        new MyMangaReaderCMS(
-            mirrorHelper,
-            {
-                mirrorName: "Komikid",
-                mirrorIcon: require("../../icons/id-optimized.png"),
-                languages: "id",
-                domains: ["komikid.com"],
-                home: "http://www.komikid.com",
-                chapter_url: /^\/manga\/.*\/.+$/g
-            },
-            {
-                base_url: "http://www.komikid.com",
-                chapters_element: "ul.chapters > li > h5 > a"
-            }
-        )
-    ]
+    return []
 }

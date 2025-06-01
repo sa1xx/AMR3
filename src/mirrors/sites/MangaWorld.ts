@@ -12,8 +12,8 @@ export class MangaWorld extends BaseMirror implements MirrorImplementation {
     canListFullMangas = false
     mirrorIcon = MirrorIcon
     languages = "en"
-    domains = ["mangaworld.ac"]
-    home = "https://www.mangaworld.ac"
+    domains = ["mangaworld.ac", "mangaworld.nz"]
+    home = "https://www.mangaworld.nz"
     chapter_url = /^\/manga\/.*?\/.*?\/read\/.*/g
 
     async getMangaList(search: string) {

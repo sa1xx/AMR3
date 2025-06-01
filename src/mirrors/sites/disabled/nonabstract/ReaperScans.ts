@@ -1,10 +1,21 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import ReaperScansIcon from "../icons/reaperscans-optimized.png"
-import { val } from "cheerio/lib/api/attributes"
+import mirrorIcon from "../../../icons/reaperscans-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class ReaperScans extends BaseMirror implements MirrorImplementation {
+export class ReaperScans extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Reaper Scans",
+            canListFullMangas: false,
+            mirrorIcon: mirrorIcon,
+            languages: "en",
+            domains: ["reaperscans.com", "reapercomics.com"],
+            home: "https://reaperscans.com",
+            chapter_url: /^\/series\/.+\/chapter-.+/g,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -48,7 +59,7 @@ export class ReaperScans extends BaseMirror implements MirrorImplementation {
         https://reapercomics.com/series/seoul-station-necromancer/chapter-141
         https://reaperscans.com/series/seoul-station-necromancer/chapter-142
 
-        */
+        * /
 
         for (const chap of json.data) {
             if (chap.price == 0) {
@@ -81,7 +92,7 @@ export class ReaperScans extends BaseMirror implements MirrorImplementation {
         /*
         https://media.reaperscans.com/file/4SRBHm//comics/ba81b4c2-9c66-4943-8b77-f1c9f503384e/chapters/b1e613a5-18f2-4f03-a3cb-cad1eba385bf/000 ars copia.jpg
                                                   comics/ba81b4c2-9c66-4943-8b77-f1c9f503384e/chapters/b1e613a5-18f2-4f03-a3cb-cad1eba385bf/000 ars copia.jpg
-        */
+        * /
 
         const res = []
 
@@ -146,10 +157,12 @@ export class ReaperScans extends BaseMirror implements MirrorImplementation {
 
     isCurrentPageAChapterPage(doc) {
         return this.queryHtml(doc, ".container img[loading='lazy']").length > 0 /* || // Comics
-            this.queryHtml(doc, ".container div#reader-container").length > 0 // Novels*/
+            this.queryHtml(doc, ".container div#reader-container").length > 0 // Novels* /
     }
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+
+    */
 }
