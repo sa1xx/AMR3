@@ -17,7 +17,7 @@ The following sections are the standard sections to use, please stick with them 
 -   Disabled Mirrors
 -   Notes - This is the catchall for anything that does not fit in the other sections.
 
-## [Unreleased]
+## [3.0.6] - 2025-06-02
 
 ### New Features
 

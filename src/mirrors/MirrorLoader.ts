@@ -52,9 +52,10 @@ import { WeebCentral } from "./sites/WeebCentral"
 import { NamiComi } from "./sites/NamiComi"
 import { JuinJutsuTeam } from "./sites/JuinJutsuTeam"
 import { MangaWorld } from "./sites/MangaWorld"
+import { AsuraScans } from "./sites/AsuraScans"
+import { DragonTea } from "./sites/DragonTea"
 
 import { TestSite } from "./sites/_localTestServer"
-import { AsuraScans } from "./sites/AsuraScans"
 
 export class MirrorLoader {
     lookupMap: Map<string, MirrorImplementation>
@@ -149,6 +150,7 @@ export const getMirrorLoader = (mirrorHelper: MirrorHelper) => {
             new MangaWorld(mirrorHelper),
             //new IsekaiScan(mirrorHelper),
             new AsuraScans(mirrorHelper),
+            //new DragonTea(mirrorHelper), Cloudflare is making it impossible to test >.<
 
             new TestSite(mirrorHelper),
 

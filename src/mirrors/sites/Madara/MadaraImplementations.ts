@@ -1,7 +1,6 @@
 import { MirrorHelper } from "../../MirrorHelper"
 import { MirrorImplementation } from "../../../types/common"
 import { Madara } from "./Madara"
-import DragonTeaIcon from "../../icons/dragon-tea-optimized.png"
 import HiperdexIcon from "../../icons/hiperdex-optimized.png"
 import KunMangaIcon from "../../icons/kun-manga-optimized.png"
 import LHTranslationsIcon from "../../icons/lhtranslations-optimized.png"
@@ -78,7 +77,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 isekai_chapter_url: false
             }
         ),
-        new Madara(
+        /*new Madara(
             mirrorHelper,
             {
                 mirrorName: "Dragon Tea",
@@ -94,7 +93,7 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 chapter_list_ajax: false,
                 isekai_chapter_url: false
             }
-        ),
+        ),*/
         new Madara(
             mirrorHelper,
             {
