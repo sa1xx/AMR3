@@ -24,7 +24,8 @@ export const defaultOptions = {
     urlProcessor: url => url,
     chapterInformationsSeriesName: (doc, url) => undefined,
     chapterInformationsSeriesUrl: (doc, url) => null,
-    doBefore: () => {}
+    doBefore: () => {},
+    getImageOvverride: ($, curUrl) => null
 }
 
 export class Madara extends BaseMirror implements MirrorImplementation {
@@ -134,7 +135,7 @@ export class Madara extends BaseMirror implements MirrorImplementation {
 
             stringsToStrip.forEach(x => (chapterName = chapterName.replace(x, "")))
 
-            if (_self.options.chapter_list_ignore_lock && $(this).find('i.fa-lock').length > 0) {
+            if (_self.options.chapter_list_ignore_lock && $(this).find("i.fa-lock").length > 0) {
                 return
             }
 
@@ -218,6 +219,13 @@ export class Madara extends BaseMirror implements MirrorImplementation {
             return preloadImages
         }
         const $ = this.parseHtml(doc)
+
+        const imageOverride = this.options.getImageOvverride($, curUrl)
+
+        if (imageOverride) {
+            return imageOverride
+        }
+
         $(this.options.img_sel).each(function () {
             let img = $(this).attr(_self.options.img_src)
             if (_self.options.hasOwnProperty("secondary_img_src") && img === undefined) {

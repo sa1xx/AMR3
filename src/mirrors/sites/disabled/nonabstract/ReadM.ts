@@ -1,9 +1,21 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import ReadMIcon from "../icons/readm-optimized.png"
+import mirrorIcon from "../../../icons/readm-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class ReadM extends BaseMirror implements MirrorImplementation {
+export class ReadM extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Read M",
+            canListFullMangas: false,
+            mirrorIcon: mirrorIcon,
+            languages: "en",
+            domains: ["readm.org", "readm.today"],
+            home: "https://readm.today",
+            chapter_url: /^\/manga\/.*\/.*/g,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -14,7 +26,7 @@ export class ReadM extends BaseMirror implements MirrorImplementation {
     languages = "en"
     domains = ["readm.org", "readm.today"]
     home = "https://readm.today"
-    chapter_url = /^\/manga\/.*\/.*/g
+    chapter_url = /^\/manga\/.*\/.* /g
 
     async getMangaList(search: string) {
         const doc = await this.mirrorHelper.loadPage(this.home + "/searchController/index?search=" + search, {
@@ -84,5 +96,5 @@ export class ReadM extends BaseMirror implements MirrorImplementation {
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
-    }
+    }*/
 }

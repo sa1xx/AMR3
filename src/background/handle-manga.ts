@@ -38,7 +38,8 @@ export class HandleManga {
                           currentScanUrl: mg.currentScanUrl /* last viewed page in currentChapter */,
                           webtoon: mg.webtoon || false /* webtoon mode */,
                           displayName: mg.displayName,
-                          zoom: mg.zoom || 100 /* zoom level */
+                          zoom: mg.zoom || 100 /* zoom level */,
+                          cats: mg.cats || []
                       }
                     : null
             }

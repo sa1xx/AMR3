@@ -131,37 +131,28 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
             mirrorName: "Mangakakalot",
             mirrorIcon: MangakakalotIcon,
             languages: "en",
-            domains: ["mangakakalot.com"],
-            home: "https://mangakakalot.com/",
-            chapter_url: /^\/chapter\/.*\/.+$/
+            domains: ["mangakakalot.com", "mangakakalot.gg"],
+            home: "https://www.mangakakalot.gg/",
+            // chapter_url: /^\/chapter\/.*\/.+$/
+            chapter_url: /^\/manga\/.*\/chapter-.*$/
         }),
         new MangakakalotAbs(
             mirrorHelper,
             {
-                mirrorName: "Manganelo",
+                mirrorName: "MangaNato",
                 mirrorIcon: ManganeloIcon,
                 languages: "en",
-                domains: [
-                    "manganato.com",
-                    "chap.manganato.com",
-                    "m.manganato.com",
-                    "readmanganato.com",
-                    "m.manganelo.com",
-                    "chap.manganelo.com",
-                    "chapmanganato.com",
-                    "chapmanganelo.com",
-                    "chapmanganato.to"
-                ],
-                home: "https://manganato.com/",
-                chapter_url: /^\/manga-.*\/chapter-\d+.*$/
-            },
-            {
-                series_list_selector: ".search-story-item a.item-title",
-                chapter_list_selector: ".row-content-chapter a",
-                chapter_information_selector:
-                    '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
-                images_selector: ".container-chapter-reader img"
-            }
+                domains: ["natomanga.com"],
+                home: "https://www.natomanga.com/",
+                chapter_url: /^\/manga\/.*\/chapter-.*$/
+            } /*,
+        {
+            series_list_selector: ".search-story-item a.item-title",
+            chapter_list_selector: ".row-content-chapter a",
+            chapter_information_selector:
+                '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
+            images_selector: ".container-chapter-reader img"
+        }*/
         )
     ]
 }

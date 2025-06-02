@@ -13,7 +13,7 @@ export class SadScans extends BaseMirror implements MirrorImplementation {
     mirrorIcon = SadScansIcon
     languages = "tr"
     domains = ["sadscans.com"]
-    home = "https://sadscans.com/"
+    home = "https://sadscans.com"
     chapter_url = /^\/reader\/.+$/g
 
     async getMangaList(search: string) {
@@ -39,6 +39,8 @@ export class SadScans extends BaseMirror implements MirrorImplementation {
         $(".chap-section a").each(function (index) {
             res.push([$(this).attr("title").replace("Bölüm", "").trim(), _self.home + $(this).attr("href")])
         })
+
+        console.debug("Chapter list", res)
         return res
     }
 
@@ -51,6 +53,8 @@ export class SadScans extends BaseMirror implements MirrorImplementation {
             currentMangaURL: this.home + mgtitle.attr("href"),
             currentChapterURL: curUrl
         }
+
+        //https://sadscans.com//reader/6835ec8ec0fb5
     }
 
     async getListImages(doc, curUrl, sender) {
@@ -59,9 +63,10 @@ export class SadScans extends BaseMirror implements MirrorImplementation {
         const id = curUrl.split("/")[4]
         const _self = this
         $(".swiper-wrapper .swiper-slide").each(function (index) {
-            const hash = $(this).attr("data-hash")
+            /*const hash = $(this).attr("data-hash")
             // let url = self.home + 'config.json?_cid=' + id + '&' + hash
-            res.push(id + "|" + hash)
+            res.push(id + "|" + hash)*/
+            res.push($(this).find("img").attr("src"))
         })
         return res
     }
@@ -71,11 +76,13 @@ export class SadScans extends BaseMirror implements MirrorImplementation {
     }
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {
-        const parts = urlImage.split("|")
-        const url = this.home + "config.json?_cid=" + parts[0] + "&" + parts[1]
-        let img
-        await fetch(url).then(blob => blob.json().then(dat => (img = "data:image/;base64," + dat[0])))
+        // const parts = urlImage.split("|")
+        // const url = this.home + "config.json?_cid=" + parts[0] + "&" + parts[1]
+        // let img
+        // await fetch(url).then(blob => blob.json().then(dat => (img = "data:image/;base64," + dat[0])))
 
-        return img
+        // return img
+
+        return urlImage
     }
 }

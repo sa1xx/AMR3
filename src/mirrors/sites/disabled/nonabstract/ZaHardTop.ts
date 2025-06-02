@@ -1,9 +1,24 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import ZaHardTopIcon from "../icons/zahardtop-optimized.png"
+import { BaseMirror } from "../../abstract/BaseMirror"
+import { MirrorImplementation } from "../../../../types/common"
+import { MirrorHelper } from "../../../MirrorHelper"
+import mirrorIcon from "../../../icons/zahardtop-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class ZaHardTop extends BaseMirror implements MirrorImplementation {
+export class ZaHardTop extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Za Hard Top",
+            canListFullMangas: false,
+            mirrorIcon: mirrorIcon,
+            languages: "en",
+            domains: ["zahard.xyz"],
+            home: "https://zahard.xyz",
+            chapter_url: /^\/read\/.+\d/g,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -76,4 +91,5 @@ export class ZaHardTop extends BaseMirror implements MirrorImplementation {
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+        */
 }

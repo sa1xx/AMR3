@@ -1,9 +1,20 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import MangaDemonIcon from "../icons/manga-demon-optimized.png"
+import MirrorIcon from "../../../icons/manga-demon-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class MangaDemon extends BaseMirror implements MirrorImplementation {
+export class MangaDemon extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Manga Demon",
+            canListFullMangas: false,
+            mirrorIcon: MirrorIcon,
+            languages: "en",
+            domains: ["manga-demon.org"],
+            home: "http://manga-demon.org/",
+            chapter_url: /read-.*-chapter-.*/g,
+            disabled: true
+        })
+    }
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -76,4 +87,5 @@ export class MangaDemon extends BaseMirror implements MirrorImplementation {
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+    */
 }

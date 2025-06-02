@@ -459,6 +459,45 @@
                                 hide-details
                                 class="pb-1"></v-switch>
                         </v-col>
+                        <v-col cols="12">
+                            <v-divider></v-divider>
+                        </v-col>
+                        <v-col cols="12" v-if="categories.length && mangaInfos">
+                            <!-- Categories -->
+                            <v-menu offset-x :close-on-content-click="false" max-height="196">
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-btn v-bind="attrs" v-on="on" :dark="!darkreader">
+                                        {{ i18n("list_details_cats") }}
+                                        <v-icon right x-small :dark="!darkreader"> mdi-menu-down </v-icon>
+                                    </v-btn>
+                                </template>
+                                <v-list dense :subheader="true" class="py-0">
+                                    <v-list-item
+                                        link
+                                        v-for="(item, index) of categories"
+                                        :key="index"
+                                        :style="
+                                            index < categories.length - 1
+                                                ? 'border-bottom: 1px solid rgb(0 0 0 / 10%);'
+                                                : ''
+                                        "
+                                        :class="darkreader ? 'dark-text' : 'light-text'"
+                                        @click="
+                                            hasCategory(item.name) ? deleteCategory(item.name) : addCategory(item.name)
+                                        ">
+                                        <v-list-item-title>
+                                            {{ item.name }}
+                                        </v-list-item-title>
+                                        <v-list-item-action>
+                                            <v-checkbox
+                                                dense
+                                                :dark="!darkreader"
+                                                :input-value="hasCategory(item.name)"></v-checkbox>
+                                        </v-list-item-action>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                        </v-col>
                     </v-row>
                     <v-row dense>
                         <!-- Reading direction -->
@@ -1027,6 +1066,10 @@ export default {
          */
         shouldInvertKeys() {
             return this.direction === "rtl" && this.invertKeys && !this.fullchapter
+        },
+
+        categories() {
+            return this.options.categoriesStates.filter(cat => cat.type !== "native" && cat.type != "language")
         }
     },
     components: { Reader, Scan, WizDialog, BookmarkPopup, ShortcutsPopup, SocialBar },
@@ -1075,6 +1118,7 @@ export default {
             })
             // Save returned manga informations in state
             this.mangaInfos = specific
+            console.debug("Manga Infos", specific)
             if (specific) this.mangaExists = true
             // Compute current layout
             if (specific && specific.layout) {
@@ -1739,6 +1783,23 @@ export default {
 
             saveAs(blob, `${seriesName} - ${chapterName}.cbz`)
             this.zip = false
+        },
+        deleteCategory: function (cat) {
+            browser.runtime.sendMessage({
+                action: "removeCategoryFromManga",
+                key: this.mangaInfos.key,
+                name: cat
+            })
+        },
+        addCategory: function (cat) {
+            browser.runtime.sendMessage({
+                action: "addCategoryToManga",
+                key: this.mangaInfos.key,
+                name: cat
+            })
+        },
+        hasCategory: function (cat) {
+            return this.mangaInfos ? this.mangaInfos.cats.includes(cat) : false
         }
     }
 }

@@ -18,9 +18,10 @@ export class MangaFreak extends BaseMirror implements MirrorImplementation {
         "w13.mangafreak.net",
         "w14.mangafreak.net",
         "w15.mangafreak.net",
-        "ww1.mangafreak.me"
+        "ww1.mangafreak.me",
+        "ww2.mangafreak.me"
     ]
-    home = "https://ww1.mangafreak.me"
+    home = "https://ww2.mangafreak.me"
     chapter_url = /\/Read.*/g
 
     async getMangaList(search: string) {

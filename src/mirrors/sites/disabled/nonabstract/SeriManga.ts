@@ -1,9 +1,21 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import SeriMangaIcon from "../icons/serimanga-optimized.png"
+import mirrorIcon from "../../../icons/serimanga-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class SeriManga extends BaseMirror implements MirrorImplementation {
+export class SeriManga extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Seri Manga",
+            canListFullMangas: false,
+            mirrorIcon: mirrorIcon,
+            languages: "en",
+            domains: ["serimanga.com", "serimangas.com"],
+            home: "https://serimangas.com/",
+            chapter_url: /^\/manga(s)?\/.*\/[0-9]+.+$/g,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -89,5 +101,5 @@ export class SeriManga extends BaseMirror implements MirrorImplementation {
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
-    }
+    }*/
 }

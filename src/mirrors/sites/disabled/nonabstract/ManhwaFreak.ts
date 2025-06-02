@@ -1,10 +1,21 @@
-import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
-import { MirrorHelper } from "../MirrorHelper"
-import ManhwaFreakIcon from "../icons/manhwa-freak-optimized.png"
-import { extractImages } from "../tsReader"
+import MirrorIcon from "../../../icons/manhwa-freak-optimized.png"
+import { DisabledMirror } from "../DisabledMirror"
 
-export class ManhwaFreak extends BaseMirror implements MirrorImplementation {
+export class ManhwaFreak extends DisabledMirror {
+    constructor() {
+        super({
+            mirrorName: "Manhwa Freak",
+            canListFullMangas: false,
+            mirrorIcon: MirrorIcon,
+            languages: "en",
+            domains: ["manhwa-freak.com", "manhwafreak.com", "manhwa-freak.org", " manhwafreak.site"],
+            home: "https://manhwafreak.site/",
+            chapter_url: /\/.*?ch-[0-9]+.*\//g,
+            disabled: true
+        })
+    }
+
+    /*
     constructor(amrLoader: MirrorHelper) {
         super(amrLoader)
     }
@@ -72,4 +83,5 @@ export class ManhwaFreak extends BaseMirror implements MirrorImplementation {
     async getImageUrlFromPage(urlImage: string): Promise<string> {
         return urlImage
     }
+        */
 }

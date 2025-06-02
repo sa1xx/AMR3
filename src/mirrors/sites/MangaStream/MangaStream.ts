@@ -2,13 +2,8 @@ import { BaseMirror } from "../abstract/BaseMirror"
 import { CurrentPageInfo, MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
 import AsuraScansIcon from "../../icons/asurascans-optimized.png"
-import KiryuuIcon from "../../icons/kiryuu-optimized.png"
-import KomikstationIcon from "../../icons/komikstation-optimized.png"
-import KomikuIcon from "../../icons/komiku-optimized.png"
 import NgomikIcon from "../../icons/ngomik-optimized.png"
-import VoidScanIcon from "../../icons/voidscans-optimized.png"
 import WestMangaIcon from "../../icons/westmanga-optimized.png"
-import ReaperScansFake from "../../icons/reaperscans-optimized.png"
 
 const defaultOptions = {
     search_a_sel: "div.bsx > a",
@@ -124,7 +119,7 @@ class MangaStream extends BaseMirror implements MirrorImplementation {
             res.push([chapter_text, chapter_url])
         })
 
-        console.debug('Chapter list', res)
+        console.debug("Chapter list", res)
         return res
     }
 
@@ -162,7 +157,7 @@ class MangaStream extends BaseMirror implements MirrorImplementation {
 
 export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): MirrorImplementation[] => {
     return [
-        new MangaStream(
+        /*new MangaStream(
             mirrorHelper,
             {
                 mirrorName: "Asura Scans",
@@ -205,7 +200,7 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                     return url
                 }
             }
-        ),
+        ),*/
         /*new MangaStream(
             mirrorHelper,
             {
@@ -252,71 +247,7 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 }
             }
         ),*/
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Kiryuu",
-                canListFullMangas: false,
-                mirrorIcon: KiryuuIcon,
-                domains: ["kiryuu.co", "kiryuu.id"],
-                home: "https://kiryuu.id/",
-                chapter_url: /^\/m[0-9]+\/$/g,
-                languages: "id"
-            },
-            {
-                search_url: "https://kiryuu.id/",
-                chapters_a_sel: "#chapterlist li .eph-num a",
-                chapters_text_sel: ".chapternum",
-                img_sel: ".wp-post-image",
-                img_src: "data-lazy-src",
-                search_json: false
-            }
-        ),
 
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Komikstation",
-                canListFullMangas: false,
-                mirrorIcon: KomikstationIcon,
-                domains: ["komikstation.com"],
-                home: "https://www.komikstation.com/",
-                chapter_url: /chapter-[0-9]+\/$/g,
-                languages: "id"
-            },
-            {
-                search_url: "https://www.komikstation.com/",
-                chapters_a_sel: "div.bixbox.bxcl > ul > li > span.lchx a",
-                search_a_sel: " div.allgreen.genrelst > ul > li> div > div.left > a",
-                search_option: "&post_type=manga",
-                manga_title_attr: true,
-                manga_url_sel: "div.chapterbody > div > article > div.headpost a"
-            }
-        ),
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Komiku",
-                canListFullMangas: false,
-                mirrorIcon: KomikuIcon,
-                domains: ["komiku.co"],
-                home: "https://komiku.co/",
-                chapter_url: /^\/m[0-9]+\/$/g,
-                languages: "id"
-            },
-            {
-                search_url: "https://komiku.co/",
-                search_a_sel: "h4.newsjudul > a",
-                search_option: "&post_type=manga",
-                manga_title_attr: false,
-                page_container_sel: "#readerareaimg",
-                manga_url_sel: "#hot > p > a",
-                chapters_a_sel: "td.judulseries > a",
-                manga_name_replace: "Manga",
-                img_sel: "#readerareaimg img",
-                search_json: false
-            }
-        ),
         new MangaStream(
             mirrorHelper,
             {
@@ -334,19 +265,19 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 chapters_a_sel: "div.lch> a"
             }
         ),
-        new MangaStream(
+        /*new MangaStream(
             mirrorHelper,
             {
                 mirrorName: "Void Scans",
                 mirrorIcon: VoidScanIcon,
                 languages: "en",
-                domains: ["void-scans.com", "hivescans.com", "hivetoon.com"],
-                home: "https://hivetoon.com/",
-                chapter_url: /^\/.+chapter-\d+/g,
+                domains: ["void-scans.com", "hivescans.com", "hivetoon.com", "hivecomic.com"],
+                home: "https://hivecomic.com/",
+                chapter_url: /^\/series\/.*\/chapter-\d+/g,
                 canListFullMangas: false
             },
             {
-                search_url: "https://hivetoon.com/",
+                search_url: "https://hivecomic.com/",
                 chapters_a_sel: "div.bixbox.bxcl ul li a",
                 chapters_text_sel: "span.chapternum",
                 // img_src: "data-lazy-src",
@@ -355,9 +286,9 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                     const parts = url.split("/")
                     if (parts[3] == "1") parts.splice(3, 1)
                     return parts.join("/")
-                }*/
+                }* /
             }
-        ),
+        ),*/
         new MangaStream(
             mirrorHelper,
             {
@@ -375,24 +306,6 @@ export const getMangaStreamImplementations = (mirrorHelper: MirrorHelper): Mirro
                 search_option: "&post_type=manga",
                 manga_title_attr: false,
                 chapters_a_sel: "div.cl > ul > li > span.leftoff > a",
-                search_json: false
-            }
-        ),
-        new MangaStream(
-            mirrorHelper,
-            {
-                mirrorName: "Reaper Scans (Fake)",
-                canListFullMangas: false,
-                mirrorIcon: ReaperScansFake,
-                domains: ["reaper-scans.com"],
-                home: "https://reaper-scans.com",
-                chapter_url: /\/.*?chapter-[0-9]+.*\//g,
-                languages: "en"
-            },
-            {
-                search_url: "reaper-scans.com",
-                chapters_a_sel: "div.bixbox.bxcl ul li a",
-                chapters_text_sel: "span.chapternum",
                 search_json: false
             }
         )
