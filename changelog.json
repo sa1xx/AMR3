@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading",
+            "parsed": {
+                "_": [
+                    "MangaBuddy - Fixed image loading"
+                ],
+                "Mirror Fixes": [
+                    "MangaBuddy - Fixed image loading"
+                ]
+            }
+        },
+        {
             "version": "3.0.6",
             "title": "[3.0.6] - 2025-06-02",
             "date": "2025-06-02",
