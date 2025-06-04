@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### Mirror Fixes\r\n\r\n-   ReadManga - Changed URL",
+            "parsed": {
+                "_": [
+                    "ReadManga - Changed URL"
+                ],
+                "Mirror Fixes": [
+                    "ReadManga - Changed URL"
+                ]
+            }
+        },
+        {
             "version": "3.0.6",
             "title": "[3.0.6] - 2025-06-02",
             "date": "2025-06-02",
