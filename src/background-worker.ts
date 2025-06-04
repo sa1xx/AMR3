@@ -9,7 +9,7 @@ import { convertToMangaDexV5 } from "./background/misc/mangedex-v5-converter"
 import { Mangadex } from "./background/misc/mangadex-v5-integration"
 import { getMirrorHelper } from "./mirrors/MirrorHelper"
 import { getMirrorLoader } from "./mirrors/MirrorLoader"
-import { getNetRulesForMirrors } from "./mirrors/MirrorNetRequestRules"
+import { createNetRequestRulesForMirrors } from "./mirrors/MirrorNetRequestRules"
 import { AmrUpdater } from "./pages/amr-updater"
 import { getIconHelper } from "./amr/icon-helper"
 import { host_permissions } from "./constants/required_permissions"
@@ -33,7 +33,6 @@ const init = async () => {
     const options = await optionsStorage.getVueOptions()
 
     await store.dispatch("initOptions", options)
-    
 
     logger.setConfig(options)
     mirrorHelper.setOptions(options)
@@ -124,11 +123,16 @@ initPromise.then(() => console.debug("completed background init"))
 // Initialize special net request rules that are needed to bypass protection on some sites.
 // These rules are persistent through browser restarts and extension updates.
 browser.runtime.onInstalled.addListener(async details => {
-    logger.debug("Initialize net request rules")
+    const mirrorNetRequestConfigs = Array.from(mirrorLoader.lookupMap.values())
+        .filter(mirror => !mirror.disabled && mirror.getNetRequestConfig)
+        .map(mirror => mirror.getNetRequestConfig())
+        .filter(config => config != null)
+
+    logger.debug(`Creating net request rules for: ${mirrorNetRequestConfigs.map(x => x.mainUrl)}`)
 
     const oldRules = await browser.declarativeNetRequest.getDynamicRules()
     const oldRuleIds = oldRules.map(rule => rule.id)
-    const newRules = getNetRulesForMirrors()
+    const newRules = createNetRequestRulesForMirrors(mirrorNetRequestConfigs)
     await browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: oldRuleIds,
         addRules: newRules

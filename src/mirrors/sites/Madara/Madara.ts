@@ -1,6 +1,6 @@
 import { BaseMirror } from "../abstract/BaseMirror"
 import { JsonOptions, MirrorHelper } from "../../MirrorHelper"
-import { MirrorImplementation, MirrorObject } from "../../../types/common"
+import { MirrorNetRequestConfig, MirrorImplementation, MirrorObject } from "../../../types/common"
 
 export const defaultOptions = {
     search_url: "",
@@ -22,6 +22,7 @@ export const defaultOptions = {
     isekai_chapter_url: false,
     image_protection_plugin: false,
     urlProcessor: url => url,
+    netRequestConfig: null,
     chapterInformationsSeriesName: (doc, url) => undefined,
     chapterInformationsSeriesUrl: (doc, url) => null,
     doBefore: () => {},
@@ -57,6 +58,10 @@ export class Madara extends BaseMirror implements MirrorImplementation {
             search_url: mirror.home,
             ...options
         }
+    }
+
+    getNetRequestConfig(): MirrorNetRequestConfig | null {
+        return this.options.netRequestConfig
     }
 
     async getMangaList(search) {

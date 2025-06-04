@@ -1,161 +1,42 @@
 import browser from "webextension-polyfill"
+import { MirrorNetRequestConfig } from "../types/common"
 
 const thisExtensionId: string = browser.i18n.getMessage("@@extension_id")
 
-type RuleInfo = {
-    action: browser.DeclarativeNetRequest.RuleActionType
-    condition: browser.DeclarativeNetRequest.RuleConditionType
-    priority?: number
-}
-
-const manhwaTopRule: RuleInfo = {
-    action: {
-        // Replaces Referer and Origin request headers to bypass site's protection
-        type: "modifyHeaders" as const,
-        requestHeaders: [
-            {
-                header: "Referer",
-                operation: "set" as const,
-                value: "https://manhwatop.com"
-            },
-            {
-                header: "Origin",
-                operation: "set" as const,
-                value: "https://manhwatop.com"
-            },
-            {
-                header: "sec-fetch-site",
-                operation: "set" as const,
-                value: "cross-site"
-            }
-        ]
-    },
-    condition: {
-        // applies only to requests from this extension
-        initiatorDomains: [thisExtensionId],
-        // for URLs that match the following filter
-        urlFilter: "|https://manhwatop.com/*",
-        // and only for our fetch requests
-        resourceTypes: ["xmlhttprequest" as const]
+function createRuleForMirror(id: number, config: MirrorNetRequestConfig): browser.DeclarativeNetRequest.Rule {
+    return {
+        id: id,
+        action: {
+            // Replaces Referer and Origin request headers to bypass site's protection
+            type: "modifyHeaders" as const,
+            requestHeaders: [
+                {
+                    header: "Referer",
+                    operation: "set" as const,
+                    value: `${config.mainUrl}/`
+                },
+                {
+                    header: "Origin",
+                    operation: "set" as const,
+                    value: config.mainUrl
+                }
+            ]
+        },
+        condition: {
+            // applies only to requests from this extension
+            initiatorDomains: [thisExtensionId],
+            // for URLs that match the following filter
+            urlFilter: config.urlFilter,
+            // or for URLs that match the following regex
+            regexFilter: config.regexUrlFilter,
+            // and only for our fetch requests
+            resourceTypes: ["xmlhttprequest" as const]
+        }
     }
 }
 
-const mangaHubRule: RuleInfo = {
-    action: {
-        // Replaces Referer and Origin request headers to bypass site's protection
-        type: "modifyHeaders" as const,
-        requestHeaders: [
-            {
-                header: "Referer",
-                operation: "set" as const,
-                value: "https://mangahub.io"
-            },
-            {
-                header: "Origin",
-                operation: "set" as const,
-                value: "https://mangahub.io"
-            }
-        ]
-    },
-    condition: {
-        // applies only to requests from this extension
-        initiatorDomains: [thisExtensionId],
-        // for URLs that match the following filter
-        regexFilter: "https://mangahub.io/*|https://api.mghcdn.com/*",
-        // and only for our fetch requests
-        resourceTypes: ["xmlhttprequest" as const]
-    }
-}
-
-const mangaFoxRule: RuleInfo = {
-    action: {
-        // Replaces Referer and Origin request headers to bypass site's protection
-        type: "modifyHeaders" as const,
-        requestHeaders: [
-            {
-                header: "Referer",
-                operation: "set" as const,
-                value: "https://fanfox.net"
-            },
-            {
-                header: "Origin",
-                operation: "set" as const,
-                value: "https://fanfox.net"
-            }
-        ]
-    },
-    condition: {
-        // applies only to requests from this extension
-        initiatorDomains: [thisExtensionId],
-        // for URLs that match the following filter
-        urlFilter: "|https://fanfox.net/*",
-        // and only for our fetch requests
-        resourceTypes: ["xmlhttprequest" as const]
-    }
-}
-
-const kappaBeastRule: RuleInfo = {
-    action: {
-        // Replaces Referer and Origin request headers to bypass site's protection
-        type: "modifyHeaders" as const,
-        requestHeaders: [
-            {
-                header: "Referer",
-                operation: "set" as const,
-                value: "https://kappabeast.com"
-            },
-            {
-                header: "Origin",
-                operation: "set" as const,
-                value: "https://kappabeast.com"
-            }
-        ]
-    },
-    condition: {
-        // applies only to requests from this extension
-        initiatorDomains: [thisExtensionId],
-        // for URLs that match the following filter
-        urlFilter: "|https://kappabeast.com/*",
-        // and only for our fetch requests
-        resourceTypes: ["xmlhttprequest" as const]
-    }
-}
-
-const mangaNatoRule: RuleInfo = {
-    action: {
-        // Replaces Referer and Origin request headers to bypass site's protection
-        type: "modifyHeaders" as const,
-        requestHeaders: [
-            {
-                header: "Referer",
-                operation: "set" as const,
-                value: "https://www.natomanga.com"
-            },
-            {
-                header: "Origin",
-                operation: "set" as const,
-                value: "https://www.natomanga.com"
-            }
-        ]
-    },
-    condition: {
-        // applies only to requests from this extension
-        initiatorDomains: [thisExtensionId],
-        // for URLs that match the following filter
-        urlFilter: "|https://www.natomanga.com/*",
-        // and only for our fetch requests
-        resourceTypes: ["xmlhttprequest" as const]
-    }
-}
-
-const amrNetRules: browser.DeclarativeNetRequest.Rule[] = [
-    { id: 1, ...manhwaTopRule },
-    { id: 2, ...mangaHubRule },
-    { id: 3, ...mangaFoxRule },
-    { id: 4, ...kappaBeastRule },
-    { id: 5, ...mangaNatoRule }
-]
-
-export function getNetRulesForMirrors(): browser.DeclarativeNetRequest.Rule[] {
-    return amrNetRules
+export function createNetRequestRulesForMirrors(
+    configs: MirrorNetRequestConfig[]
+): browser.DeclarativeNetRequest.Rule[] {
+    return configs.map((config, configId) => createRuleForMirror(configId + 1, config))
 }
