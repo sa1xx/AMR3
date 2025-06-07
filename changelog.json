@@ -4,17 +4,19 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading",
+            "body": "### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading\r\n-   ReadManga - Changed URL",
             "parsed": {
                 "_": [
                     "Net request rules are now defined inside mirrors, rather than inside a separate file",
-                    "MangaBuddy - Fixed image loading"
+                    "MangaBuddy - Fixed image loading",
+                    "ReadManga - Changed URL"
                 ],
                 "Changed Features": [
                     "Net request rules are now defined inside mirrors, rather than inside a separate file"
                 ],
                 "Mirror Fixes": [
-                    "MangaBuddy - Fixed image loading"
+                    "MangaBuddy - Fixed image loading",
+                    "ReadManga - Changed URL"
                 ]
             }
         },
