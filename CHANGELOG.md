@@ -23,6 +23,10 @@ The following sections are the standard sections to use, please stick with them 
 
 -   Net request rules are now defined inside mirrors, rather than inside a separate file
 
+### Mirror Fixes
+
+-   MangaBuddy - Fixed image loading
+
 ## [3.0.6] - 2025-06-02
 
 ### New Features

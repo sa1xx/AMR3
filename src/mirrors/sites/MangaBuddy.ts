@@ -16,6 +16,7 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
     home = "https://mangabuddy.com/home"
     baseUrl = "https://mangabuddy.com"
     chapter_url = /^\/.+\/chapter-\d+$/g
+    imageServer = "https://sb.mbcdn.xyz"
     mangaIdRegex = /var bookId = (?<mangaId>\d+);/
 
     async getMangaList(search: string) {
@@ -69,8 +70,12 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
         const res = []
         const $ = this.parseHtml(doc)
 
-        const images = await this.getVariable({ variableName: "chapImages ", doc }).split(",")
-
+        const images = await this.getVariable({ variableName: "chapImages ", doc })
+            .split(",")
+            .map(url => {
+                const path = url.split("/manga/")[1]
+                return `${this.imageServer}/manga/${path}`
+            })
         return images
     }
 
