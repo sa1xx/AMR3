@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### Mirror Fixes\r\n\r\n-   MangaHub - Fixed occasional page redirections",
+            "parsed": {
+                "_": [
+                    "MangaHub - Fixed occasional page redirections"
+                ],
+                "Mirror Fixes": [
+                    "MangaHub - Fixed occasional page redirections"
+                ]
+            }
+        },
+        {
             "version": "3.0.6",
             "title": "[3.0.6] - 2025-06-02",
             "date": "2025-06-02",
