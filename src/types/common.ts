@@ -89,6 +89,17 @@ export interface AppManga {
     zoom?: number
 }
 
+/** Config parameters to control network requests sent by AMR for Mirror.
+ *  @see browser.declarativeNetRequest for specifics about url filtering. **/
+export interface MirrorNetRequestConfig {
+    // URL that will be used as a source of AMR's network requests
+    mainUrl: string
+    // Apply only to target URLs that match the filter
+    urlFilter?: string
+    // Apply only to target URLs that match the regular expression
+    regexUrlFilter?: string
+}
+
 /** Plain javascript object with static properties defined **/
 export interface MirrorObject {
     mirrorName: string
@@ -147,6 +158,8 @@ export interface MirrorImplementation extends MirrorObject {
     isCurrentPageAChapterPage(doc: string, curUrl: string): boolean
 
     getChapterTitle?: (doc: string, curUrl: string) => Promise<string>
+
+    getNetRequestConfig?: () => MirrorNetRequestConfig | null
 }
 
 /// SYNC related types

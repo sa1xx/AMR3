@@ -1,5 +1,5 @@
 import { BaseMirror } from "./abstract/BaseMirror"
-import { InfoResult, MirrorImplementation } from "../../types/common"
+import { InfoResult, MirrorImplementation, MirrorNetRequestConfig } from "../../types/common"
 import MangaFoxIcon from "../icons/mangafox-optimized.png"
 import { MirrorHelper } from "../MirrorHelper"
 import { extractListOfImages } from "../zjcdn"
@@ -45,6 +45,13 @@ export class MangaFox extends BaseMirror implements MirrorImplementation {
     chapter_url = /\/manga\/.*\/.+\/.*/g
     /** Use it to generate default schema with https **/
     currentDomain = "https://fanfox.net"
+
+    getNetRequestConfig(): MirrorNetRequestConfig | null {
+        return {
+            mainUrl: this.currentDomain,
+            urlFilter: `|${this.currentDomain}/*`
+        }
+    }
 
     async getMangaList(search) {
         const urlManga = this.currentDomain + "/search?name=" + search

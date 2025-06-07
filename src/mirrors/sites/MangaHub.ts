@@ -1,5 +1,7 @@
+import escapeStringRegexp from "escape-string-regexp"
+
 import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
+import { MirrorNetRequestConfig, MirrorImplementation } from "../../types/common"
 import { JsonOptions, MirrorHelper } from "../MirrorHelper"
 import MangaHubIcon from "../icons/mangahub-optimized.png"
 
@@ -18,6 +20,16 @@ export class MangaHub extends BaseMirror implements MirrorImplementation {
 
     apiDomain = "https://api.mghcdn.com"
     cdnDomain = "https://imgx.mghcdn.com/"
+
+    getNetRequestConfig(): MirrorNetRequestConfig | null {
+        const escapedMirrorUrl = escapeStringRegexp(this.home.slice(0, -1))
+        const escapedApiUrl = escapeStringRegexp(this.apiDomain)
+
+        return {
+            mainUrl: this.home.slice(0, -1),
+            regexUrlFilter: `^(?:${escapedMirrorUrl}|${escapedApiUrl})/.*`
+        }
+    }
 
     async getMangaList(search: string) {
         return this.searchPage(this.home + "search?q=" + search)
@@ -72,8 +84,6 @@ export class MangaHub extends BaseMirror implements MirrorImplementation {
             name: "mhub_access"
         })
 
-        // There is additional net request rule for mangahub.io.
-        // If you are updating this mirror, don't forget to also update MirrorNetRequestRules.ts file.
         const json = await this.mirrorHelper.loadJson(`${this.apiDomain}/graphql`, {
             nocache: true,
             method: "POST",

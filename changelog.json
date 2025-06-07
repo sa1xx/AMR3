@@ -1,6 +1,20 @@
 {
     "versions": [
         {
+            "version": null,
+            "title": "[Unreleased]",
+            "date": null,
+            "body": "### Changed Features\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file",
+            "parsed": {
+                "_": [
+                    "Net request rules are now defined inside mirrors, rather than inside a separate file"
+                ],
+                "Changed Features": [
+                    "Net request rules are now defined inside mirrors, rather than inside a separate file"
+                ]
+            }
+        },
+        {
             "version": "3.0.6",
             "title": "[3.0.6] - 2025-06-02",
             "date": "2025-06-02",

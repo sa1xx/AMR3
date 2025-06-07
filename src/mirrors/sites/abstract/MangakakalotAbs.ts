@@ -1,5 +1,5 @@
 import { BaseMirror } from "./BaseMirror"
-import { MirrorImplementation, MirrorObject } from "../../../types/common"
+import { MirrorNetRequestConfig, MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
 import { CheerioAPI } from "cheerio"
 import MangakakalotIcon from "../../icons/mangakakalot-optimized.png"
@@ -12,7 +12,8 @@ const defaultOptions = {
     series_list_page_last_selector: "a.page_last",
     chapter_list_selector: ".chapter-list a",
     chapter_information_selector: ".breadcrumb:first > p > :nth-child(3) a",
-    images_selector: ".container-chapter-reader img"
+    images_selector: ".container-chapter-reader img",
+    netRequestConfig: null
 }
 
 export class MangakakalotAbs extends BaseMirror implements MirrorImplementation {
@@ -44,6 +45,10 @@ export class MangakakalotAbs extends BaseMirror implements MirrorImplementation 
             base_url: mirror.home,
             ...options
         }
+    }
+
+    getNetRequestConfig(): MirrorNetRequestConfig | null {
+        return this.options.netRequestConfig
     }
 
     async getMangaList(search) {
@@ -145,14 +150,13 @@ export const getMangaKakalotImplementations = (mirrorHelper: MirrorHelper): Mirr
                 domains: ["natomanga.com"],
                 home: "https://www.natomanga.com/",
                 chapter_url: /^\/manga\/.*\/chapter-.*$/
-            } /*,
-        {
-            series_list_selector: ".search-story-item a.item-title",
-            chapter_list_selector: ".row-content-chapter a",
-            chapter_information_selector:
-                '.panel-breadcrumb:first a[href*="/manga/"]:first, .panel-breadcrumb:first a[href*="/manga-"]:first',
-            images_selector: ".container-chapter-reader img"
-        }*/
+            },
+            {
+                netRequestConfig: {
+                    mainUrl: "https://www.natomanga.com",
+                    urlFilter: "|https://www.natomanga.com/*"
+                }
+            }
         )
     ]
 }

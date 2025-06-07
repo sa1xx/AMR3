@@ -1,5 +1,5 @@
 import { BaseMirror } from "../abstract/BaseMirror"
-import { MirrorImplementation, MirrorObject } from "../../../types/common"
+import { MirrorNetRequestConfig, MirrorImplementation, MirrorObject } from "../../../types/common"
 import { MirrorHelper } from "../../MirrorHelper"
 import ManhwaxIcon from "../../icons/manhwax-optimized.png"
 import NightScansIcon from "../../icons/night-scans-optimized.png"
@@ -10,6 +10,7 @@ const defaultOptions = {
     chapter_list_selector: ".eph-num a",
     manga_url_selector: ".allc a",
     img_sel: "#readerarea img",
+    netRequestConfig: null,
     urlProcessorSeries: url => url,
     urlProcessorChapter: url => url
 }
@@ -42,6 +43,10 @@ export class MangaStream_1_1_4 extends BaseMirror implements MirrorImplementatio
             ...defaultOptions,
             ...options
         }
+    }
+
+    getNetRequestConfig(): MirrorNetRequestConfig | null {
+        return this.options.netRequestConfig
     }
 
     public async getMangaList(search: string) {
@@ -231,7 +236,12 @@ export const getMangaStream114Implementations = (mirrorHelper: MirrorHelper): Mi
                 chapter_url: /.*\-\d+/g,
                 languages: "en"
             },
-            {}
+            {
+                netRequestConfig: {
+                    mainUrl: "https://kappabeast.com",
+                    urlFilter: "|https://kappabeast.com/*"
+                }
+            }
         ),
         new MangaStream_1_1_4(
             mirrorHelper,
