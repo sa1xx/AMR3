@@ -4,29 +4,21 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-<<<<<<< HEAD
-            "body": "### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading\r\n-   ReadManga - Changed URL",
+            "body": "### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading\r\n-   ReadManga - Changed URL\r\n-   MangaHub - Fixed occasional page redirections",
             "parsed": {
                 "_": [
                     "Net request rules are now defined inside mirrors, rather than inside a separate file",
                     "MangaBuddy - Fixed image loading",
-                    "ReadManga - Changed URL"
+                    "ReadManga - Changed URL",
+                    "MangaHub - Fixed occasional page redirections"
                 ],
                 "Changed Features": [
                     "Net request rules are now defined inside mirrors, rather than inside a separate file"
                 ],
                 "Mirror Fixes": [
                     "MangaBuddy - Fixed image loading",
-                    "ReadManga - Changed URL"
-=======
-            "body": "### Mirror Fixes\r\n\r\n-   MangaHub - Fixed occasional page redirections",
-            "parsed": {
-                "_": [
+                    "ReadManga - Changed URL",
                     "MangaHub - Fixed occasional page redirections"
-                ],
-                "Mirror Fixes": [
-                    "MangaHub - Fixed occasional page redirections"
->>>>>>> nonedark2008/fix-mangahub-api-queries
                 ]
             }
         },
