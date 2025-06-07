@@ -77,6 +77,12 @@ export class MangaHub extends BaseMirror implements MirrorImplementation {
             chapter = chapter.split("?")[0]
         }
 
+        // If we don't send logHistory2 requests, the subsequent API requests
+        // will start to be denined at some point
+        await this.mirrorHelper.loadJson(`${new URL(curUrl).origin}/action/logHistory2/${slug}/${chapter}`, {
+            nocache: true
+        } as JsonOptions)
+
         const query = `{"query":"{chapter(x:m01,slug:\\"${slug}\\",number:${chapter}){id,title,mangaID,number,slug,date,pages,noAd,manga{id,title,slug,mainSlug,author,isWebtoon,isYaoi,isPorn,isSoftPorn,unauthFile,isLicensed}}}\"}`
 
         const mhubCookie = await this.mirrorHelper.getCookie({
@@ -88,7 +94,7 @@ export class MangaHub extends BaseMirror implements MirrorImplementation {
             nocache: true,
             method: "POST",
             data: query,
-            headers: { "X-Mhub-Access": mhubCookie?.value }
+            headers: { "x-mhub-access": mhubCookie?.value }
         } as JsonOptions)
 
         const res = []
