@@ -146,8 +146,8 @@ export const getReadMangaMirrors = (mirrorHelper: MirrorHelper): MirrorImplement
                 mirrorName: "ReadManga",
                 mirrorIcon: require("../../icons/readmanga-optimized.png"),
                 languages: "ru",
-                domains: ["*.readmanga.io"],
-                home: "https://t.readmanga.io",
+                domains: ["*.zazaza.me", "*.readmanga.io"],
+                home: "https://a.zazaza.me",
                 canListFullMangas: false,
                 chapter_url: /^\/.*\/vol.*\/[0-9]+.*$/g
             },

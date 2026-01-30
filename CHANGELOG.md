@@ -26,7 +26,7 @@ The following sections are the standard sections to use, please stick with them 
 ### Mirror Fixes
 
 -   MangaBuddy - Fixed image loading
--   ReadManga - Changed URL
+-   ReadManga - Update URL x2
 -   MangaHub - Fixed occasional page redirections
 
 ## [3.0.6] - 2025-06-02
