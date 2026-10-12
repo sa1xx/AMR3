@@ -390,6 +390,12 @@
                                 {{ i18n("list_details_act_search") }}
                             </v-list-item-title>
                         </v-list-item>
+                        <v-list-item link @click="migrateMirror = true">
+                            <v-list-item-title>
+                                <v-icon small left>mdi-swap-horizontal</v-icon>
+                                {{ i18n("migration_title") }}
+                            </v-list-item-title>
+                        </v-list-item>
                         <!-- Reset manga read status -->
                         <v-list-item link @click="resetManga()">
                             <v-list-item-title>
@@ -458,6 +464,7 @@
                 </v-menu>
             </v-col>
         </v-row>
+        <MirrorMigration v-if="migrateMirror" :manga="manga" @close="migrateMirror = false" />
     </v-card>
 </template>
 
@@ -466,6 +473,7 @@ import i18n from "../../amr/i18n"
 import browser from "webextension-polyfill"
 import { chapPath, darkText, getColor, mangaKey } from "../../shared/utils"
 import Flag from "./Flag"
+import MirrorMigration from "./MirrorMigration.vue"
 
 export default {
     data() {
@@ -474,6 +482,7 @@ export default {
             expanded: false,
             // delete manga popup state
             deleteManga: false,
+            migrateMirror: false,
             selectable: false, // Should we show the multi select checkbox
             selected: false,
             canOpenTab: true, // This is used for a timer to hopefully eliminate weird duping issue
@@ -861,7 +870,7 @@ export default {
     },
     // Name of the component
     name: "Manga",
-    components: { Flag }
+    components: { Flag, MirrorMigration }
 }
 </script>
 

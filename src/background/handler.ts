@@ -46,6 +46,17 @@ export class Handler {
 
     inlineHandleHandle = async (message, sender) => {
         switch (message.action) {
+            case "prepareMirrorMigration":
+            case "migrateMirrorManga":
+                try {
+                    const data = await this.store.dispatch(message.action, message)
+                    return { ok: true, data: serializeVuexObject(data) }
+                } catch (error) {
+                    return {
+                        ok: false,
+                        error: error.message?.startsWith("migration_error_") ? error.message : "migration_error_load"
+                    }
+                }
             case "getoptions":
                 // doing that because content script is not vue aware,
                 // the reactive vuex object needs to be converted to POJSO

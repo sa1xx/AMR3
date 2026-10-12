@@ -4,13 +4,18 @@
             "version": null,
             "title": "[Unreleased]",
             "date": null,
-            "body": "### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading\r\n-   ReadManga - Changed URL\r\n-   MangaHub - Fixed occasional page redirections",
+            "body": "### New Features\r\n\r\n-   Migrate saved series to another mirror, with chapter selection and preserved reader settings and categories\r\n\r\n### Changed Features\r\n\r\n-   Net request rules are now defined inside mirrors, rather than inside a separate file\r\n\r\n### Mirror Fixes\r\n\r\n-   MangaBuddy - Fixed image loading\r\n-   ReadManga - Changed URL\r\n-   MangaHub - Fixed occasional page redirections\r\n\r\n### Disabled Mirrors\r\n\r\n-   Manga Clash (ToonClash) - Site is no longer available",
             "parsed": {
                 "_": [
+                    "Migrate saved series to another mirror, with chapter selection and preserved reader settings and categories",
                     "Net request rules are now defined inside mirrors, rather than inside a separate file",
                     "MangaBuddy - Fixed image loading",
                     "ReadManga - Changed URL",
-                    "MangaHub - Fixed occasional page redirections"
+                    "MangaHub - Fixed occasional page redirections",
+                    "Manga Clash (ToonClash) - Site is no longer available"
+                ],
+                "New Features": [
+                    "Migrate saved series to another mirror, with chapter selection and preserved reader settings and categories"
                 ],
                 "Changed Features": [
                     "Net request rules are now defined inside mirrors, rather than inside a separate file"
@@ -19,6 +24,9 @@
                     "MangaBuddy - Fixed image loading",
                     "ReadManga - Changed URL",
                     "MangaHub - Fixed occasional page redirections"
+                ],
+                "Disabled Mirrors": [
+                    "Manga Clash (ToonClash) - Site is no longer available"
                 ]
             }
         },

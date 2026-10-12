@@ -1,4 +1,76 @@
 {
+    "migration_title": {
+        "message": "Migrer vers un autre site"
+    },
+    "migration_description": {
+        "message": "Choisissez la série de destination et vérifiez le dernier chapitre lu. Les catégories et les réglages de lecture sont copiés."
+    },
+    "migration_mirror": {
+        "message": "Site de destination"
+    },
+    "migration_search": {
+        "message": "Rechercher la série"
+    },
+    "migration_series": {
+        "message": "Série de destination"
+    },
+    "migration_no_results": {
+        "message": "Aucun résultat. Essayez un autre titre ou collez l’URL de la série ci-dessous."
+    },
+    "migration_url": {
+        "message": "URL de la série (vous pouvez aussi la coller directement)"
+    },
+    "migration_load": {
+        "message": "Charger les chapitres"
+    },
+    "migration_language": {
+        "message": "Langue"
+    },
+    "migration_progress": {
+        "message": "Dernier chapitre lu sur l’ancien site"
+    },
+    "migration_choose_chapter": {
+        "message": "Aucune correspondance unique. Sélectionnez le dernier chapitre lu sur le site de destination."
+    },
+    "migration_chapter": {
+        "message": "Dernier chapitre lu sur le site de destination"
+    },
+    "migration_unread": {
+        "message": "Aucun chapitre lu"
+    },
+    "migration_keep_source": {
+        "message": "Conserver l’entrée d’origine comme sauvegarde"
+    },
+    "migration_bookmarks": {
+        "message": "Les favoris restent liés au site d’origine. La position dans un chapitre ne peut pas être transférée entre les sites."
+    },
+    "migration_cancel": {
+        "message": "Annuler"
+    },
+    "migration_close": {
+        "message": "Fermer"
+    },
+    "migration_success": {
+        "message": "La série a été migrée. Le suivi des mises à jour est réactivé pour les séries des sites désactivés."
+    },
+    "migration_sync_warning": {
+        "message": "La migration a été enregistrée localement, mais la synchronisation ou l’export automatique a échoué. Vérifiez vos réglages de synchronisation."
+    },
+    "migration_error_load": {
+        "message": "Impossible de charger ou d’enregistrer la série. Vérifiez l’URL et réessayez ; l’entrée d’origine est conservée en cas d’échec de l’enregistrement."
+    },
+    "migration_error_source": {
+        "message": "La série d’origine n’est plus dans la liste de lecture."
+    },
+    "migration_error_mirror": {
+        "message": "Choisissez un autre site actif et une URL de série appartenant à ce site."
+    },
+    "migration_error_chapter": {
+        "message": "Le chapitre ou la langue n’est plus disponible. Rechargez les chapitres et sélectionnez à nouveau."
+    },
+    "migration_error_duplicate": {
+        "message": "Cette série est déjà enregistrée sur le site de destination. L’entrée existante n’a pas été écrasée."
+    },
     "extension_name": {
         "message": "All Mangas Reader",
         "description": "Extension name - do not translate !"

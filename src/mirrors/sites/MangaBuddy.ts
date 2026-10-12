@@ -1,7 +1,19 @@
 import { BaseMirror } from "./abstract/BaseMirror"
-import { MirrorImplementation } from "../../types/common"
+import { InfoResult, MirrorImplementation, MirrorNetRequestConfig } from "../../types/common"
 import { MirrorHelper } from "../MirrorHelper"
-import MangaBuddyIcon from "../icons/manga-btt-optimized.png"
+import MangaBuddyIcon from "../icons/manga-buddy-optimized.png"
+
+interface ComizyTitle {
+    id: string
+    name: string
+    url: string
+}
+
+interface ComizyPageData {
+    ssrItems?: ComizyTitle[]
+    initialManga?: ComizyTitle
+    initialChapter?: { url: string; images: string[] }
+}
 
 export class MangaBuddy extends BaseMirror implements MirrorImplementation {
     constructor(amrLoader: MirrorHelper) {
@@ -12,75 +24,66 @@ export class MangaBuddy extends BaseMirror implements MirrorImplementation {
     canListFullMangas = false
     mirrorIcon = MangaBuddyIcon
     languages = "en"
-    domains = ["mangabuddy.com"]
-    home = "https://mangabuddy.com/home"
-    baseUrl = "https://mangabuddy.com"
-    chapter_url = /^\/.+\/chapter-\d+$/g
-    imageServer = "https://sb.mbcdn.xyz"
-    mangaIdRegex = /var bookId = (?<mangaId>\d+);/
+    domains = ["mangabuddy.com", "comizy.io"]
+    home = "https://comizy.io/home"
+    baseUrl = "https://comizy.io"
+    chapter_url = /^\/[^/]+\/(?:vol-[^/?#]+-)?chapter-[^/?#]+(?:[?#].*)?$/
 
-    async getMangaList(search: string) {
-        const doc = await this.mirrorHelper.loadPage(this.home + "/search?q=" + search, {
+    getNetRequestConfig(): MirrorNetRequestConfig {
+        return {
+            mainUrl: this.baseUrl,
+            regexUrlFilter: "^https://(?:api\\.comizy\\.io|x[0-9]+\\.cmzcdn\\.org)/"
+        }
+    }
+
+    private getPageData(doc: string): ComizyPageData {
+        const data = this.queryHtml(doc, "script#__NEXT_DATA__").text()
+        return data ? JSON.parse(data).props.pageProps : {}
+    }
+
+    async getMangaList(search: string): Promise<InfoResult[]> {
+        const doc = await this.mirrorHelper.loadPage(this.baseUrl + "/search?q=" + encodeURIComponent(search), {
             nocache: true,
             preventimages: true
         })
 
-        const res = []
-        const _self = this
-        const $ = this.parseHtml(doc)
-
-        $(".manga-list .title h3 a").each(function () {
-            res.push([$(this).text().trim(), _self.baseUrl + $(this).attr("href")])
-        })
-        return res
+        return (this.getPageData(doc).ssrItems ?? []).map(manga => [
+            manga.name.trim(),
+            new URL(manga.url, this.baseUrl).href
+        ])
     }
 
-    getMangaId(doc: string): string {
-        return doc.match(this.mangaIdRegex).groups.mangaId
-    }
-
-    async getListChaps(urlManga) {
+    async getListChaps(urlManga): Promise<InfoResult[]> {
         const doc = await this.mirrorHelper.loadPage(urlManga, { nocache: true, preventimages: true })
-        const mangaId = this.getMangaId(doc)
-        const chaptersRequestUrl = `${this.baseUrl}/api/manga/${mangaId}/chapters?source=detail`
-        const chaptersDoc = await this.mirrorHelper.loadPage(chaptersRequestUrl, { nocache: true, preventimages: true })
+        const manga = this.getPageData(doc).initialManga
+        if (!manga) throw new Error("Manga Buddy: manga data not found")
 
-        const res = []
-        const _self = this
-        const $ = this.parseHtml(chaptersDoc)
-
-        $("ul.chapter-list a").each(function (index) {
-            res.push([$(".chapter-title", this).text().trim(), _self.baseUrl + $(this).attr("href")])
-        })
-        return res
+        // The series page embeds only the latest 50 chapters; the API returns the complete list.
+        const chapters = await this.mirrorHelper.loadJson(
+            `https://api.comizy.io/titles/${encodeURIComponent(manga.id)}/chapters`,
+            { nocache: true }
+        )
+        if (!Array.isArray(chapters.data?.chapters)) throw new Error("Manga Buddy: chapter list not found")
+        return chapters.data.chapters.map(chapter => [chapter.name.trim(), new URL(chapter.url, this.baseUrl).href])
     }
 
     async getCurrentPageInfo(doc, curUrl) {
-        const $ = this.parseHtml(doc)
-        var mgtitle = $($("#breadcrumbs-container .breadcrumbs-item")[1]).find("a")
+        const { initialManga: manga, initialChapter: chapter } = this.getPageData(doc)
+        if (!manga || !chapter) throw new Error("Manga Buddy: chapter data not found")
 
         return {
-            name: mgtitle.text(),
-            currentMangaURL: this.baseUrl + mgtitle.attr("href"),
-            currentChapterURL: curUrl
+            name: manga.name,
+            currentMangaURL: new URL(manga.url, this.baseUrl).href,
+            currentChapterURL: new URL(chapter.url, this.baseUrl).href
         }
     }
 
     async getListImages(doc, curUrl, sender) {
-        const res = []
-        const $ = this.parseHtml(doc)
-
-        const images = await this.getVariable({ variableName: "chapImages ", doc })
-            .split(",")
-            .map(url => {
-                const path = url.split("/manga/")[1]
-                return `${this.imageServer}/manga/${path}`
-            })
-        return images
+        return this.getPageData(doc).initialChapter?.images ?? []
     }
 
     isCurrentPageAChapterPage(doc, curUrl) {
-        return this.queryHtml(doc, "div#chapter-images div.chapter-image").length > 0
+        return (this.getPageData(doc).initialChapter?.images?.length ?? 0) > 0
     }
 
     async getImageUrlFromPage(urlImage: string): Promise<string> {

@@ -19,7 +19,6 @@ import ToonilyIcon from "../../icons/toonily-optimized.png"
 import TopManhuaIcon from "../../icons/topmanhua-optimized.png"
 import TritiniaScansIcon from "../../icons/tritiniascans-optimized.png"
 import WebtoonXyzIcon from "../../icons/webtoon-xyz-optimized.png"
-import MangaClashIcon from "../../icons/manga-clash-optimized.png"
 import MangaReadIcon from "../../icons/manga-read-optimized.png"
 import ManhuausIcon from "../../icons/manhuaus-optimized.png"
 import GourmetScansIcon from "../../icons/gourmet-scans-optimized.png"
@@ -160,25 +159,6 @@ export const getMadaraImplementations = (mirrorHelper: MirrorHelper): MirrorImpl
                 chapter_list_ajax: true,
                 isekai_chapter_url: true,
                 chapters_a_sel: `li.wp-manga-chapter > a[href*="lhtranslation.net"]`
-            }
-        ),
-        new Madara(
-            mirrorHelper,
-            {
-                mirrorName: "Manga Clash",
-                mirrorIcon: MangaClashIcon,
-                languages: "en",
-                domains: ["mangaclash.com", "toonclash.com"],
-                home: "https://toonclash.com/",
-                chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|devmax)\/.*\/.+$/g,
-                canListFullMangas: false
-            },
-            {
-                search_url: "https://toonclash.com/"
-                // chapters_a_sel: "li.wp-manga-chapter .li__text a",
-                // chapter_list_ajax: true,
-                // isekai_chapter_url: true,
-                // image_protection_plugin: true
             }
         ),
         new Madara(

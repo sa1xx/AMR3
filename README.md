@@ -11,6 +11,11 @@ All Mangas Reader is a browser extension which is designed to help you read and 
 -   A lot of supported websites
 -   Synchronization across multiple devices
 
+To migrate a saved series, expand its row and open **More actions → Migrate to another mirror**.
+Choose an active destination mirror, search for the series or paste its series URL, and confirm the last read chapter.
+Categories and reader settings are copied. The original entry is kept by default; uncheck the backup option to replace it.
+Bookmarks stay linked to their original mirror, and the page position within a chapter is not transferred.
+
 ### Browser compatibility
 
 <table>

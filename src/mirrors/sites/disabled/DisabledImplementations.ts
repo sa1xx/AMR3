@@ -18,6 +18,19 @@ import { ZaHardTop } from "./nonabstract/ZaHardTop"
 export const getDisabledImplementations = () => {
     return [
         new DisabledMirror({
+            mirrorName: "Manga Clash",
+            mirrorIcon: require("../../icons/manga-clash-optimized.png"),
+            languages: "en",
+            domains: ["mangaclash.com", "toonclash.com"],
+            home: "https://toonclash.com/",
+            chapter_url: /^\/(manhwa|comic|manga|webtoon|manhua|series|devmax)\/.*\/.+$/g,
+            canListFullMangas: false,
+            abstract: "Madara",
+            abstract_options: {
+                search_url: "https://toonclash.com/"
+            }
+        }),
+        new DisabledMirror({
             disabled: true,
             mirrorName: "Aloalivn",
             mirrorIcon: require("../../icons/aloalivn-optimized.png"),

@@ -12,6 +12,7 @@ import {
     gistDebug,
     isMultiLanguageList,
     mangaKey,
+    matchDomain,
     readLanguage,
     shouldCheckForUpdate
 } from "../../shared/utils"
@@ -23,6 +24,7 @@ import { mdFixLang, mdFixLangKey, mdFixLangsListPrefix } from "../../shared/mang
 import { Alarm, clearAlarm, createAlarm } from "../../shared/AlarmService"
 import { shouldDelayUpdate } from "../../shared/chapterUpdaterUtil"
 import { getSyncOptions } from "../../shared/Options"
+import { buildMigratedManga } from "../../shared/mirrorMigration"
 
 let syncManager
 // @TODO replace with actual error
@@ -107,6 +109,92 @@ const getters = {
 
 // actions
 const actions = {
+    async prepareMirrorMigration({ rootState }, message) {
+        const source = rootState.mangas.all.find(manga => manga.key === message.key)
+        if (!source) throw new Error("migration_error_source")
+        const mirror = rootState.mirrors.all.find(mirror => mirror.mirrorName === message.mirror)
+        if (!mirror || mirror.disabled || !mirror.activated || mirror.mirrorName === source.mirror) {
+            throw new Error("migration_error_mirror")
+        }
+        const url = new URL(message.url)
+        if (
+            !/^https?:$/.test(url.protocol) ||
+            !mirror.domains.some(domain =>
+                matchDomain(url.hostname.replace(/^www\./, ""), domain, { state: rootState })
+            )
+        ) {
+            throw new Error("migration_error_mirror")
+        }
+        url.hash = ""
+        const impl = await getMirrorLoader(getMirrorHelper(rootState.options)).getImpl(message.mirror)
+        const lists = await impl.getListChaps(url.href)
+        const chapters = Array.isArray(lists) ? { "": lists } : lists
+        if (!chapters || typeof chapters !== "object") throw new Error("migration_error_load")
+        const valid = Object.fromEntries(
+            Object.entries(chapters).filter(
+                ([, list]) =>
+                    Array.isArray(list) &&
+                    list.length &&
+                    list.every(
+                        chapter =>
+                            Array.isArray(chapter) && typeof chapter[0] === "string" && typeof chapter[1] === "string"
+                    )
+            )
+        )
+        if (!Object.keys(valid).length) throw new Error("migration_error_load")
+        return { url: url.href, chapters: valid }
+    },
+
+    async migrateMirrorManga({ rootState, dispatch, commit, getters }, message) {
+        if (typeof message.chapterUrl !== "string" || typeof message.keepSource !== "boolean") {
+            throw new Error("migration_error_chapter")
+        }
+        // Reload the destination before saving; nothing is removed if it is unavailable.
+        const target = await dispatch("prepareMirrorMigration", message)
+        const chapters = target.chapters[message.language || ""]
+        if (!chapters) throw new Error("migration_error_chapter")
+        const source = rootState.mangas.all.find(manga => manga.key === message.key)
+        if (!source) throw new Error("migration_error_source")
+        const language = message.language || undefined
+        const key = mangaKey({ url: target.url, mirror: message.mirror, language, rootState: { state: rootState } })
+        if (rootState.mangas.all.some(manga => manga.key === key)) throw new Error("migration_error_duplicate")
+        const sourceMirror = rootState.mirrors.all.find(mirror => mirror.mirrorName === source.mirror)
+        const manga = new Manga(
+            buildMigratedManga(
+                source,
+                {
+                    key,
+                    mirror: message.mirror,
+                    name: message.name || source.name,
+                    url: target.url,
+                    language,
+                    languages: Object.keys(target.chapters).filter(Boolean),
+                    chapters,
+                    chapterUrl: message.chapterUrl
+                },
+                !sourceMirror || sourceMirror.disabled
+            ),
+            key
+        )
+        await storedb.migrateManga({ sourceKey: source.key, manga, keepSource: message.keepSource })
+        commit("migrateMirrorManga", { sourceKey: source.key, manga, keepSource: message.keepSource })
+        let syncWarning = false
+        try {
+            await dispatch("exportManga", manga, { root: true })
+            if (!message.keepSource) await dispatch("unExportManga", source, { root: true })
+            if (!syncManager) syncManager = getSyncManager(getters.syncOptions, rootState, dispatch)
+            await syncManager.setToRemote(manga, "ts")
+            if (!message.keepSource) await syncManager.deleteManga(source.key)
+            await dispatch("setOption", { key: "updated", value: Date.now() })
+            await dispatch("setOption", { key: "changesSinceSync", value: 1 })
+            await dispatch("updateLanguageCategories")
+            getIconHelper({ state: rootState, getters }).refreshBadgeAndIcon()
+        } catch (error) {
+            logger.error(error)
+            syncWarning = true
+        }
+        return { key, syncWarning }
+    },
     /**
      * Retrieve manga list from DB, initialize the store
      * @param {*} param0
@@ -1026,6 +1114,11 @@ const actions = {
  * A mutation MUST be a synchrone function
  */
 const mutations = {
+    migrateMirrorManga(state, { sourceKey, manga, keepSource }) {
+        if (!keepSource) state.all = state.all.filter(entry => entry.key !== sourceKey)
+        state.all.push(new Manga(manga, manga.key))
+        Vue.delete(state.selected, sourceKey)
+    },
     /**
      * Set the list of mangas in the store
      * @param {*} state

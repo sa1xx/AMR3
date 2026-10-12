@@ -301,6 +301,19 @@ class StoreDB {
             })
         })
     }
+    /** Save a migration atomically, without overwriting an existing destination. */
+    async migrateManga({ sourceKey, manga, keepSource }) {
+        await this.checkInit()
+        return new Promise((resolve, reject) => {
+            const transaction = this.db.transaction(["mangas"], "readwrite")
+            transaction.oncomplete = () => resolve()
+            transaction.onabort = () => reject(transaction.error || new Error("Migration aborted"))
+            const mangas = transaction.objectStore("mangas")
+            mangas.add(manga)
+            if (!keepSource) mangas.delete(sourceKey)
+        })
+    }
+
     /** replace old with new */
     async replace({ oldManga, newManga }) {
         await this.deleteManga(oldManga.key)

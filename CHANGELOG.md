@@ -19,6 +19,10 @@ The following sections are the standard sections to use, please stick with them 
 
 ## [Unreleased]
 
+### New Features
+
+-   Migrate saved series to another mirror, with chapter selection and preserved reader settings and categories
+
 ### Changed Features
 
 -   Net request rules are now defined inside mirrors, rather than inside a separate file
@@ -28,6 +32,10 @@ The following sections are the standard sections to use, please stick with them 
 -   MangaBuddy - Fixed image loading
 -   ReadManga - Changed URL
 -   MangaHub - Fixed occasional page redirections
+
+### Disabled Mirrors
+
+-   Manga Clash (ToonClash) - Site is no longer available
 
 ## [3.0.6] - 2025-06-02
 

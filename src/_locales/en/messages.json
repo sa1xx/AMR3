@@ -1,4 +1,76 @@
 {
+    "migration_title": {
+        "message": "Migrate to another mirror"
+    },
+    "migration_description": {
+        "message": "Choose the destination series and check the last chapter you have read. Categories and reader settings are copied."
+    },
+    "migration_mirror": {
+        "message": "Destination mirror"
+    },
+    "migration_search": {
+        "message": "Search for the series"
+    },
+    "migration_series": {
+        "message": "Destination series"
+    },
+    "migration_no_results": {
+        "message": "No results. Try another title or paste the series URL below."
+    },
+    "migration_url": {
+        "message": "Series URL (you can also paste it directly)"
+    },
+    "migration_load": {
+        "message": "Load chapters"
+    },
+    "migration_language": {
+        "message": "Language"
+    },
+    "migration_progress": {
+        "message": "Previously read chapter"
+    },
+    "migration_choose_chapter": {
+        "message": "No unique match was found. Select the last chapter you have read on the destination site."
+    },
+    "migration_chapter": {
+        "message": "Last read chapter on the destination mirror"
+    },
+    "migration_unread": {
+        "message": "No chapters read yet"
+    },
+    "migration_keep_source": {
+        "message": "Keep the original entry as a backup"
+    },
+    "migration_bookmarks": {
+        "message": "Existing bookmarks stay linked to the original mirror. The position within a chapter cannot be transferred between sites."
+    },
+    "migration_cancel": {
+        "message": "Cancel"
+    },
+    "migration_close": {
+        "message": "Close"
+    },
+    "migration_success": {
+        "message": "The series has been migrated. Updates are enabled again for series from disabled mirrors."
+    },
+    "migration_sync_warning": {
+        "message": "The migration was saved locally, but synchronization or automatic export failed. Check your synchronization settings."
+    },
+    "migration_error_load": {
+        "message": "Could not load or save the destination series. Check the URL and try again; your original entry is preserved if saving fails."
+    },
+    "migration_error_source": {
+        "message": "The original series is no longer in the reading list."
+    },
+    "migration_error_mirror": {
+        "message": "Choose a different active mirror and a series URL belonging to it."
+    },
+    "migration_error_chapter": {
+        "message": "The selected chapter or language is no longer available. Reload the chapters and select again."
+    },
+    "migration_error_duplicate": {
+        "message": "This series is already saved on the destination mirror. The existing entry has not been overwritten."
+    },
     "extension_name": {
         "message": "All Mangas Reader",
         "description": "Extension name - do not translate !"

@@ -87,6 +87,8 @@ export interface AppManga {
     currentScanUrl: string
 
     zoom?: number
+    updateError?: number
+    updateErrorCode?: number
 }
 
 /** Config parameters to control network requests sent by AMR for Mirror.
