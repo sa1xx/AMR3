@@ -67,7 +67,8 @@ export class SyncTracker {
         await this.notificationManager?.triggerNotification({
             title: syncUpdate.errorDetails.type === "rate-limit" ? "Rate limit reached" : "Sync Manager Error",
             message: syncUpdate.errorDetails.message,
-            contextMessage: `Provider: ${syncUpdate.provider}`
+            contextMessage: `Provider: ${syncUpdate.provider}`,
+            isClickable: false
         })
 
         await this.dispatch("setOption", {

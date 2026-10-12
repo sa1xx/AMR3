@@ -337,6 +337,17 @@ You can also work on the [wiki](https://gitlab.com/all-mangas-reader/all-mangas-
 
 ### Developer installation
 
+On 64-bit Windows, you can build a Firefox XPI without installing Node.js, Yarn, or Corepack globally:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\build-firefox.ps1
+```
+
+The script downloads checksum-verified portable Node.js and Yarn into `.build-tools`, installs the locked dependencies,
+runs the migration tests, builds the extension, and writes `dist-zip/all-mangas-reader-3.0.6.xpi`.
+Use `-Development` for a development build. For testing, open `about:debugging#/runtime/this-firefox` in Firefox and load
+`dist/manifest.json` as a temporary add-on. A permanent installation in standard Firefox requires Mozilla signing.
+
 1. First clone this repository locally and install it using `yarn` (if you don't have yarn, [install it](https://yarnpkg.com)).
 2. Install dependencies: `yarn install`
 3. Build the extension (note that you will need to run this command when updating extension code) `yarn run build:dev`
